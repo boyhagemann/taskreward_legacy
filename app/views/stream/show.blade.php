@@ -2,8 +2,8 @@
 
 @section('content')
 
-<h1>{{ $stream->action->title }}</h1>
-<h2>{{ $stream->message }}</h2>
+<h1>{{ $moment->action->title }}</h1>
+<h2>{{ $moment->message }}</h2>
 
 @stop
 

@@ -14,7 +14,7 @@
 Route::get('/', 'HomeController@index');
 
 Route::model('tasks', 'Task');
-Route::model('stream', 'Stream');
+Route::model('stream', 'Moment');
 
 Route::resource('tasks', 'TaskController');
 Route::resource('stream', 'StreamController');

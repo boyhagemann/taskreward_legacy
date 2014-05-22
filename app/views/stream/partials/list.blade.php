@@ -1,6 +1,6 @@
-@foreach($stream as $event)
+@foreach($stream as $moment)
 <article>
-    <h5>{{ $event->action->title }} {{ $event->ago }}</h5>
-    <p><a href="{{ URL::route('stream.show', $event->id) }}">{{ $event->message }}</a></p>
+    <h5>{{ $moment->action->title }} {{ $moment->ago }}</h5>
+    <p><a href="{{ URL::route('stream.show', $moment->id) }}">{{ $moment->message }}</a></p>
 </article>
 @endforeach

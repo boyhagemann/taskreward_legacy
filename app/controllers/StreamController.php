@@ -17,12 +17,12 @@ class StreamController extends \BaseController {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  Stream $stream
+	 * @param  Moment $moment
 	 * @return Response
 	 */
-	public function show(Stream $stream)
+	public function show(Moment $moment)
 	{
-		return View::make('stream.show', compact('stream'));
+		return View::make('stream.show', compact('moment'));
 	}
 
 }
