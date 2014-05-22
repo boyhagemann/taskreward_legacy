@@ -17,6 +17,8 @@ class Moment extends Eloquent {
     protected $with = 'action';
     
     protected $appends = array('ago');
+    
+    protected $fillable = array('message', 'action_id', 'account_id');
 
     /**
 	 * @return Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -33,6 +35,15 @@ class Moment extends Eloquent {
     public function getAgoAttribute()
     {
         return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffForHumans();
+    }
+
+    /**
+     * 
+     * @return Illuminate\Database\Eloquent\Builder
+     */
+    public function newBaseQueryBuilder()
+    {
+        return parent::newBaseQueryBuilder()->orderBy('created_at', 'DESC');
     }
 
 }

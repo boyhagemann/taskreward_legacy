@@ -18,3 +18,15 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
         });        
     }
 });
+
+
+Event::listen('token.redirect', function(Token $token) {
+    
+    Moment::create(array(
+        'message'       => sprintf('Your link is clicked (<a href="%s">%s</a>)...', $token->url, $token->key),
+        'action_id'     => 2,
+        'account_id'    => $token->account->id,
+        'data'          => json_encode($token->toArray()),
+    ));
+    
+});

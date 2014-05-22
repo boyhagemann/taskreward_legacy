@@ -12,7 +12,7 @@ class MomentTableSeeder extends Seeder {
 		Moment::create(array(
 			'action_id' => 1,
             'message' => 'New task added',
-            'data' => json_encode(array('username' => 'testuser')),
+            'data' => json_encode(array('task_id' => 1)),
 		));
 	}
 
