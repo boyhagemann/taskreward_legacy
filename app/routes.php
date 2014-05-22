@@ -19,6 +19,7 @@ Route::model('stream', 'Moment');
 Route::resource('tasks', 'TaskController');
 Route::resource('stream', 'StreamController');
 Route::get('tasks/{tasks}/accept', array(
+    'before' => 'auth',
     'uses' => 'TaskController@accept',
     'as' => 'tasks.accept',
 ));

@@ -6,7 +6,7 @@
 <p>{{ $task->product_description }}</p>
 
 <div class="alert alert-info">
-    <a href="">http://domain.com/af93sdf65fd</a>
+    <a href="">http://domain.com/{{ $token->key }}</a>
 </div>
     
 
