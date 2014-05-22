@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder {
 		 $this->call('ProviderTableSeeder');
 		 $this->call('TaskTableSeeder');
 		 $this->call('ActionTableSeeder');
-		 $this->call('StreamTableSeeder');
+		 $this->call('MomentTableSeeder');
 	}
 
 }

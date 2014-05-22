@@ -3,7 +3,7 @@
 /**
  * Class Action
  *
- * @property Provider $provider
+ * @property Moment[] $moments
  */
 class Action extends Eloquent {
 
@@ -17,8 +17,8 @@ class Action extends Eloquent {
 	/**
 	 * @return Illuminate\Database\Eloquent\Relations\HasMany
 	 */
-	public function stream()
+	public function moments()
 	{
-		return $this->hasMany('Stream');
+		return $this->hasMany('Moment');
 	}
 }

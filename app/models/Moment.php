@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Class Stream
+ * Class Moment
  *
  * @property Action $action
  */
-class Stream extends Eloquent {
+class Moment extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'stream';
+	protected $table = 'moments';
     
     protected $with = 'action';
     

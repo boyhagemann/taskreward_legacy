@@ -1,6 +1,6 @@
 <?php
 
-class StreamTableSeeder extends Seeder {
+class MomentTableSeeder extends Seeder {
 
 	/**
 	 * Run the database seeds.
@@ -9,7 +9,7 @@ class StreamTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Stream::create(array(
+		Moment::create(array(
 			'action_id' => 1,
             'message' => 'New task added',
             'data' => json_encode(array('username' => 'testuser')),

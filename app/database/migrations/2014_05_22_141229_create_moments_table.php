@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStreamTable extends Migration {
+class CreateMomentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateStreamTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('stream', function(Blueprint $table)
+		Schema::create('moments', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
@@ -35,7 +35,7 @@ class CreateStreamTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('stream');
+		Schema::drop('moments');
 	}
 
 }

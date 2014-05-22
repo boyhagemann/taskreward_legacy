@@ -1,6 +1,6 @@
 <?php namespace Api;
 
-use Stream;
+use Moment;
 
 class StreamController extends \BaseController {
 
@@ -11,7 +11,7 @@ class StreamController extends \BaseController {
 	 */
 	public function index()
 	{
-		$q = Stream::query();
+		$q = Moment::query();
 
 		return $q->get();
 	}
