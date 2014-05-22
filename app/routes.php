@@ -11,16 +11,21 @@
 |
 */
 
-Route::get('/', function()
-{
-	return 'home';
-});
+Route::get('/', 'HomeController@index');
 
 Route::model('tasks', 'Task');
+Route::model('stream', 'Stream');
+
 Route::resource('tasks', 'TaskController');
+Route::resource('stream', 'StreamController');
+Route::get('tasks/{tasks}/accept', array(
+    'uses' => 'TaskController@accept',
+    'as' => 'tasks.accept',
+));
 
 Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
 	Route::resource('task', 'TaskController');
+	Route::resource('stream', 'StreamController');
 });
 
 

@@ -14,29 +14,6 @@ class TaskController extends \BaseController {
 		return View::make('tasks.index', compact('tasks'));
 	}
 
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -48,41 +25,15 @@ class TaskController extends \BaseController {
 		return View::make('tasks.show', compact('task'));
 	}
 
-
 	/**
-	 * Show the form for editing the specified resource.
+	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  Task $task
 	 * @return Response
 	 */
-	public function edit($id)
+	public function accept(Task $task)
 	{
-		//
+		return View::make('tasks.accept', compact('task'));
 	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 
 }
