@@ -16,6 +16,7 @@ Route::get('/', function()
 	return 'home';
 });
 
+Route::model('tasks', 'Task');
 Route::resource('tasks', 'TaskController');
 
 Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {

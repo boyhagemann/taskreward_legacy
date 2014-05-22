@@ -40,12 +40,12 @@ class TaskController extends \BaseController {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  Task $task
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Task $task)
 	{
-		//
+		return View::make('tasks.show', compact('task'));
 	}
 
 
