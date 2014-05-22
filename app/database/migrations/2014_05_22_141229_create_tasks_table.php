@@ -19,10 +19,12 @@ class CreateTasksTable extends Migration {
 
 			$table->integer('provider_id');
 			$table->string('uid');
-			$table->string('title');
-			$table->string('description');
 			$table->string('task');
 			$table->string('reward');
+			$table->string('product_title');
+			$table->text('product_description');
+			$table->string('product_uri');
+			$table->integer('value');
 			$table->string('unit');
 
 			$table->unique(array('provider_id', 'uid'));

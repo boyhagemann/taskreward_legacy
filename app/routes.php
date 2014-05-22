@@ -13,5 +13,11 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return 'home';
 });
+
+Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
+	Route::resource('task', 'TaskController');
+});
+
+

@@ -11,11 +11,14 @@ class TaskTableSeeder extends Seeder {
 	{
 		Task::create(array(
 			'provider_id' => 1,
-			'title' => 'Get people to join',
-			'description' => 'A description',
-			'task' => 'Get people to join',
-			'reward' => '9% of their sales',
-			'unit' => '',
+			'uid' => 'uid1',
+			'product_title' => 'Samsung TV',
+			'product_description' => 'Nice TV',
+			'product_uri' => 'http://www.google.com',
+			'task' => 'Get people to buy this product',
+			'reward' => '100 euro',
+			'value' => 100,
+			'unit' => 'EUR',
 		));
 	}
 
