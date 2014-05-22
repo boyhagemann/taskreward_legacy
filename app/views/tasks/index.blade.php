@@ -2,6 +2,6 @@
 
 @section('content')
 
-@include('tasks.partials.list')
+@include('partials.tasks.list')
 
 @stop

@@ -2,6 +2,6 @@
 
 @section('content')
 
-@include('stream.partials.list')
+@include('partials.stream.list')
 
 @stop

@@ -15,6 +15,9 @@ Route::get('/', 'HomeController@index');
 
 Route::model('tasks', 'Task');
 Route::model('stream', 'Moment');
+Route::bind('token', function($key) {
+    return Token::where('key', $key)->firstOrFail();
+});
 
 Route::resource('tasks', 'TaskController');
 Route::resource('stream', 'StreamController');
@@ -22,6 +25,11 @@ Route::get('tasks/{tasks}/accept', array(
     'before' => 'auth',
     'uses' => 'TaskController@accept',
     'as' => 'tasks.accept',
+));
+
+Route::get('r/{token}', array(
+    'uses' => 'TokenController@redirect',
+    'as' => 'token.redirect',
 ));
 
 Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {

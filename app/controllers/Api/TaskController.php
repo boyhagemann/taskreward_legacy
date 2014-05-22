@@ -1,6 +1,6 @@
 <?php namespace Api;
 
-use Task;
+use Task, Event;
 
 class TaskController extends \BaseController {
 
@@ -12,6 +12,9 @@ class TaskController extends \BaseController {
 	public function index()
 	{
 		$q = Task::query();
+        
+        Event::fire('api.index', $q);
+        Event::fire('api.task.index', $q);
 
 		return $q->get();
 	}

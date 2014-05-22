@@ -28,19 +28,20 @@
         </div>
     </div>
 
+    @include('partials.navbar')
       
       <div class="container">
           
           <section class="col-lg-4">
              
             <h2>Latest tasks</h2>
-            @include('tasks.partials.list')
+            @include('partials.tasks.list')
               
           </section>
           <section class="col-lg-4">
               
             <h2>Stream</h2>
-            @include('stream.partials.list')
+            @include('partials.stream.list')
 
           </section>
           

@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableInterface;
-
+/**
+ * 
+ * @property Task $task
+ * @property Account $account
+ */
 class Token extends Eloquent  {
 
 	/**
@@ -11,6 +13,8 @@ class Token extends Eloquent  {
 	 * @var string
 	 */
 	protected $table = 'tokens';
+    
+    protected $appends = array('url');
 
     public static function boot()
     {
@@ -34,6 +38,31 @@ class Token extends Eloquent  {
         }
         
         return $key;
+    }
+    
+	/**
+	 * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function task()
+	{
+		return $this->belongsTo('Task');
+	}
+    
+	/**
+	 * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function account()
+	{
+		return $this->belongsTo('Account');
+	}
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getUrlAttribute()
+    {
+        return URL::route('token.redirect', $this->key);
     }
 
 }

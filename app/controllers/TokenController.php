@@ -1,28 +1,17 @@
 <?php
 
-class TaskController extends \BaseController {
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$tasks = API::get('api/task', Input::all());
-
-		return View::make('tasks.index', compact('tasks'));
-	}
-
+class TokenController extends \BaseController 
+{
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  Task $task
+	 * @param  Token $token
 	 * @return Response
 	 */
-	public function show(Task $task)
+	public function redirect(Token $token)
 	{
-		return View::make('tasks.show', compact('task'));
+        $url = $token->task->product_uri;
+		return Redirect::to($url);
 	}
 
 	/**
