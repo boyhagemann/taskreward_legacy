@@ -17,8 +17,8 @@ class TaskTableSeeder extends Seeder {
 			'product_uri' => 'http://www.google.com',
 			'task' => 'Get people to buy this product',
 			'reward' => '100 euro',
-			'value' => 100,
-			'unit' => 'EUR',
+			'value' => 100 / 0.91,
+			'currency' => 'EUR',
 		));
 	}
 

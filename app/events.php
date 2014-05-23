@@ -30,3 +30,27 @@ Event::listen('token.redirect', function(Token $token) {
     ));
     
 });
+
+Event::listen('api.token.update', function(Token $token) {
+    
+    if(!$token->isAccepted()) {
+        return;
+    }
+    
+    SaleRepository::createFromToken($token);
+    
+});
+
+Sale::created(function(Sale $sale) {
+    
+    $task = $sale->token->task;
+    $user = $sale->account->user;
+            
+    Moment::create(array(
+        'message'       => sprintf('%s sold: %s earns %s %s', $task->product_title, $user->name, $sale->value, $sale->currency),
+        'action_id'     => 3,
+        'account_id'    => $sale->account->id,
+        'data'          => json_encode($sale->toArray()),
+    ));
+    
+});

@@ -24,12 +24,12 @@ class CreateTasksTable extends Migration {
 			$table->string('product_title');
 			$table->text('product_description');
 			$table->string('product_uri');
-			$table->integer('value');
-			$table->string('unit');
+			$table->float('value');
+			$table->string('currency');
 
 			$table->unique(array('provider_id', 'uid'));
 			$table->index('reward');
-			$table->index('unit');
+			$table->index('currency');
 
 		});
 	}

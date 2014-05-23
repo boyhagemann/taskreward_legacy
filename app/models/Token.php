@@ -7,7 +7,11 @@
  */
 class Token extends Eloquent  {
 
-	/**
+    const STATUS_ACTIVE = 'active';
+    const STATUS_INACTIVE = 'inactive';
+    const STATUS_ACCEPTED = 'accepted';
+    
+  	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
@@ -15,13 +19,17 @@ class Token extends Eloquent  {
 	protected $table = 'tokens';
     
     protected $appends = array('url');
+    
+    protected $fillable = array('status', 'task_id', 'account_id');
+    
 
     public static function boot()
     {
         parent::boot();
         
         Token::creating(function($token) {            
-            $token->key = static::generateKey();            
+            $token->key     = static::generateKey();   
+            $token->status  = static::STATUS_ACTIVE;
         });
     }
 
@@ -63,6 +71,15 @@ class Token extends Eloquent  {
     public function getUrlAttribute()
     {
         return URL::route('token.redirect', $this->key);
+    }
+    
+    /**
+     * 
+     * @return bool
+     */
+    public function isAccepted()
+    {
+        return $this->status == static::STATUS_ACCEPTED;
     }
 
 }

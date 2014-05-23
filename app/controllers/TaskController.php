@@ -37,7 +37,7 @@ class TaskController extends \BaseController {
             'task_id' => $task->id,
             'account_id' => Auth::user()->id,
         ));
-        
+                
 		return View::make('tasks.accept', compact('task', 'token'));
 	}
 

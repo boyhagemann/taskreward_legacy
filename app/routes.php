@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', array(
+    'uses' => 'HomeController@index',
+    'as' => 'home',
+));
 
 Route::model('tasks', 'Task');
 Route::model('stream', 'Moment');
@@ -35,6 +38,7 @@ Route::get('r/{token}', array(
 Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
 	Route::resource('task', 'TaskController');
 	Route::resource('stream', 'StreamController');
+	Route::resource('token', 'TokenController');
 });
 
 

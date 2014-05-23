@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-    Auth::loginUsingId(1);
+    Auth::loginUsingId(2);
 });
 
 

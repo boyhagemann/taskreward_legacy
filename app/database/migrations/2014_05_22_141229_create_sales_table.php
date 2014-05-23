@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTokensTable extends Migration {
+class CreateSalesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,19 +12,19 @@ class CreateTokensTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tokens', function(Blueprint $table)
+		Schema::create('sales', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
 
-			$table->integer('task_id');
+			$table->integer('token_id');
 			$table->integer('account_id');
-			$table->string('key');
-            $table->enum('status', array('active', 'inactive', 'accepted'));
+            $table->float('value');
+            $table->string('currency');
 
-			$table->unique(array('task_id', 'account_id'));
-			$table->unique('key');
-
+			$table->unique(array('token_id', 'account_id'));
+            $table->index('value');
+            $table->index('currency');
 		});
 	}
 
@@ -35,7 +35,7 @@ class CreateTokensTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tokens');
+		Schema::drop('sales');
 	}
 
 }
