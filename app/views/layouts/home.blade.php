@@ -35,13 +35,13 @@
 
         @include('partials.messages')
           
-          <section class="col-lg-4">
+          <section class="col-lg-6">
              
             <h2>Latest tasks</h2>
             @include('partials.tasks.list')
               
           </section>
-          <section class="col-lg-4">
+          <section class="col-lg-6">
               
             <h2>Stream</h2>
             @include('partials.stream.list')

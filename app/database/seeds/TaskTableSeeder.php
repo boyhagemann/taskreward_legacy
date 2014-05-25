@@ -12,8 +12,8 @@ class TaskTableSeeder extends Seeder {
 		Task::create(array(
 			'provider_id' => 1,
 			'uid' => 'uid1',
-			'product_title' => 'Samsung TV',
-			'product_description' => 'Nice TV',
+			'product_title' => 'Samsung Curved UHD TV SMART 65"',
+			'product_description' => 'TV was nog nooit zo meeslepend als met deze gebogen TV. Het bijzondere beeldscherm geeft diepte aan tweedimensionale beelden.',
 			'product_uri' => 'http://www.google.com',
 			'task' => 'Get people to buy this product',
 			'reward' => '100 euro',
