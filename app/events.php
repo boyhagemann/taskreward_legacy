@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Illuminate\Support\Collection;
 
 Event::listen('api.task.index', function(QueryBuilder $qb) {
     
@@ -45,12 +46,47 @@ Sale::created(function(Sale $sale) {
     
     $task = $sale->token->task;
     $person = $sale->user->person;
+    
+    $message = Lang::choice('moments.sale', 0, array(
+        'product'   => $task->product_title, 
+        'name'      => $person->name, 
+        'value'     => $sale->value, 
+        'currency'  => $sale->currency
+    ));    
             
     Moment::create(array(
-        'message'       => sprintf('%s sold: %s earns %s %s', $task->product_title, $person->name, $sale->value, $sale->currency),
+        'message'   => $message,
+        'action_id' => 3,
+        'user_id'   => $sale->user->id,
+        'data'      => json_encode($sale->toArray()),
+    ));
+    
+});
+
+
+Event::listen('user.invite', function(User $user, $password) {
+            
+    Mail::send('emails.user.invitation', compact('user', 'password'), function($message) use ($user) {
+        $message->to($user->email);
+        $message->from($user->parent->email);
+        $message->subject(sprintf('%s has invited you', $user->name));
+    });
+    
+});
+
+Event::listen('invitation.stored', function(Collection $result, User $user) {
+       
+    $count = $result->sum(function($item) {
+        return $item['success'];
+    });
+    
+    $message = Lang::choice('moments.invitation', $count, array('name' => $user->person->name));
+    
+    Moment::create(array(
+        'message'       => $message,
         'action_id'     => 3,
-        'user_id'       => $sale->user->id,
-        'data'          => json_encode($sale->toArray()),
+        'user_id'       => $user->id,
+        'data'          => json_encode(compact('count', 'user')),
     ));
     
 });

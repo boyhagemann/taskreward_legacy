@@ -49,20 +49,27 @@ Route::post('login', array(
     'uses' => 'UserController@auth',
     'as' => 'user.auth',
 ));
-Route::get('logout', array(
-    'before' => 'auth',
-    'uses' => 'UserController@logout',
-    'as' => 'user.logout',
-));
-Route::get('account/dashboard', array(
-    'before' => 'auth',
-    'uses' => 'UserController@dashboard',
-    'as' => 'user.dashboard',
-));
 Route::get('register', array(
     'uses' => 'UserController@register',
     'as' => 'user.register',
 ));
+
+
+
+Route::group(array('before' => 'auth', ), function() {    
+
+    Route::get('logout', array(
+        'uses' => 'UserController@logout',
+        'as' => 'user.logout',
+    ));
+    Route::get('account/dashboard', array(
+        'uses' => 'UserController@dashboard',
+        'as' => 'user.dashboard',
+    ));
+    
+    Route::resource('invitation', 'InvitationController');    
+});
+
 
 
 
