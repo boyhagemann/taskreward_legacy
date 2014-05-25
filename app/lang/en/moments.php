@@ -13,6 +13,7 @@ return array(
 	|
 	*/
 
+	'clicked'       => 'Your link is clicked (<a href=":url">:key</a>)',
 	'invitation'    => ':name invited 1 person|:name invited :count people',
     'sale'          => ':product sold! :name earns :value :currency',
 

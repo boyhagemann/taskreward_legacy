@@ -30,7 +30,7 @@ class UserController extends \BaseController {
             
             Sentry::login($user);
             
-            return Redirect::route('user.dashboard');
+            return Redirect::intended(URL::route('user.dashboard'));
             
         }
         catch (Cartalyst\Sentry\Users\LoginRequiredException $e)

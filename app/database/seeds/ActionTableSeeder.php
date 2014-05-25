@@ -18,7 +18,7 @@ class ActionTableSeeder extends Seeder {
 		Action::create(array(
 			'name' => 'link_clicked',
             'title' => 'Link clicked',
-            'visibility' => 'public',
+            'visibility' => 'private',
 		));
         
 		Action::create(array(

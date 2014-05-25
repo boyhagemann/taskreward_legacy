@@ -20,13 +20,30 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
     }
 });
 
+Event::listen('api.stream.index', function(QueryBuilder $qb) {
+    
+    if(!Input::get('user_id')) {
+        $qb->whereHas('action', function($qb) {
+            $qb->where('visibility', 'public');
+        });        
+        return;
+    } 
+    
+    $qb->where(function($qb) {
+        $qb->orWhere('user_id', Input::get('user_id'));    
+        $qb->orWhereNull('user_id');    
+    });
+});
+
 
 Event::listen('token.redirect', function(Token $token) {
     
+    $message = Lang::get('moments.clicked', $token->toArray());
+    
     Moment::create(array(
-        'message'       => sprintf('Your link is clicked (<a href="%s">%s</a>)...', $token->url, $token->key),
+        'message'       => $message,
         'action_id'     => 2,
-        'user_id'    => $token->user->id,
+        'user_id'       => $token->user->id,
         'data'          => json_encode($token->toArray()),
     ));
     
@@ -47,7 +64,7 @@ Sale::created(function(Sale $sale) {
     $task = $sale->token->task;
     $person = $sale->user->person;
     
-    $message = Lang::choice('moments.sale', 0, array(
+    $message = Lang::get('moments.sale', array(
         'product'   => $task->product_title, 
         'name'      => $person->name, 
         'value'     => $sale->value, 
