@@ -27,6 +27,10 @@
     </ul>
 </div>
 
+@else
+<div>
+    <a href="{{ URL::route('tasks.accept', $task->id) }}" class="btn btn-lg btn-primary">Let's do this!</a>
+</div>
 @endif
 
 @stop
@@ -34,15 +38,7 @@
 
 @section('sidebar')
 
-@if(!$token)
-<div>
-    <a href="{{ URL::route('tasks.accept', $task->id) }}" class="btn btn-lg btn-primary">Let's do this!</a>
-</div>
-@else
-
 <h2>Task activity</h2>
 @include('partials.stream.list')
-
-@endif
 
 @stop
