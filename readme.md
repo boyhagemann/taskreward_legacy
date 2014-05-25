@@ -1,1 +1,4 @@
-Update this
+
+### How to install
+Use 'php artisan app:install'
+
