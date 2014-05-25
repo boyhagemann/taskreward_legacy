@@ -23,6 +23,8 @@
     
       <div class="container">
           
+        @include('partials.messages')
+        
           <section class="col-lg-9">
               @yield('content')
           </section>

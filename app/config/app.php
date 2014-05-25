@@ -122,6 +122,7 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Teepluss\Api\ApiServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'AdamWathan\BootForms\BootFormsServiceProvider',
 	),
 
 	/*
@@ -189,7 +190,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'API' 			  => 'Teepluss\Api\Facades\API',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
-
+        'BootForm'        => 'AdamWathan\BootForms\Facades\BootForm',
 	),
 
 );

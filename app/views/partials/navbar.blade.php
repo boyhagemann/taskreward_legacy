@@ -24,12 +24,12 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        @if(Auth::check())
-        <li><a href="#" class="">My account</a></li>        
-        <li><a href="#" class="">Log out</a></li>        
+        @if(Sentry::check())
+        <li><a href="{{ URL::route('user.dashboard') }}" class="">My account</a></li>        
+        <li><a href="{{ URL::route('user.logout') }}" class="">Log out</a></li>        
         @else  
-        <li><a href="#" class="">Sign up</a></li>
-        <li><a href="#" class="">Log in</a></li>
+        <li><a href="{{ URL::route('user.register') }}" class="">Sign up</a></li>
+        <li><a href="{{ URL::route('user.login') }}" class="">Log in</a></li>
         @endif
       </ul>
     </div><!-- /.navbar-collapse -->

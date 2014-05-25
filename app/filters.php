@@ -34,8 +34,10 @@ App::after(function($request, $response)
 */
 
 Route::filter('auth', function()
-{
-    Auth::loginUsingId(2);
+{ 
+    if ( ! Sentry::check()) {
+        return Redirect::route('user.login');
+    }
 });
 
 

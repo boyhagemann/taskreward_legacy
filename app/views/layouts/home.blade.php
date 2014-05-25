@@ -32,6 +32,8 @@
     </div>
       
       <div class="container">
+
+        @include('partials.messages')
           
           <section class="col-lg-4">
              

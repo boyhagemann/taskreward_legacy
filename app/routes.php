@@ -35,6 +35,37 @@ Route::get('r/{token}', array(
     'as' => 'token.redirect',
 ));
 
+
+/*
+|--------------------------------------------------------------------------
+| User Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('login', array(
+    'uses' => 'UserController@login',
+    'as' => 'user.login',
+));
+Route::post('login', array(
+    'uses' => 'UserController@auth',
+    'as' => 'user.auth',
+));
+Route::get('logout', array(
+    'before' => 'auth',
+    'uses' => 'UserController@logout',
+    'as' => 'user.logout',
+));
+Route::get('account/dashboard', array(
+    'before' => 'auth',
+    'uses' => 'UserController@dashboard',
+    'as' => 'user.dashboard',
+));
+Route::get('register', array(
+    'uses' => 'UserController@register',
+    'as' => 'user.register',
+));
+
+
+
 Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
 	Route::resource('task', 'TaskController');
 	Route::resource('stream', 'StreamController');
