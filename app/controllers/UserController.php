@@ -78,7 +78,8 @@ class UserController extends \BaseController {
 	 */
 	public function dashboard()
 	{
-        return View::make('user.dashboard');
+        $tasks = API::get('api/task', array('user_id' => Sentry::getUser()->id));
+        return View::make('user.dashboard', compact('tasks'));
 	}
     
 	/**

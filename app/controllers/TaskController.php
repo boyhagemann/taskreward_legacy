@@ -22,7 +22,16 @@ class TaskController extends \BaseController {
 	 */
 	public function show(Task $task)
 	{
-		return View::make('tasks.show', compact('task'));
+        $token = Sentry::check() 
+            ? Token::where('task_id', $task->id)->where('user_id', Sentry::getUser()->id)->first()
+            : null;
+        
+        $stream = API::get('api/stream', array(
+            'task_id' => $task->id,
+            'user_id' => Sentry::check() ? Sentry::getUser()->id : null,
+        ));
+        
+		return View::make('tasks.show', compact('task', 'token', 'stream'));
 	}
 
 	/**
@@ -33,12 +42,15 @@ class TaskController extends \BaseController {
 	 */
 	public function accept(Task $task)
 	{
+        $user = Sentry::getUser();
         $token = Token::firstOrCreate(array(
             'task_id' => $task->id,
-            'user_id' => Sentry::getUser()->id,
+            'user_id' => $user->id,
         ));
                 
-		return View::make('tasks.accept', compact('task', 'token'));
+        Event::fire('task.accepted', array($token, $user));
+        
+		return Redirect::route('tasks.show', $task->id);
 	}
 
 }

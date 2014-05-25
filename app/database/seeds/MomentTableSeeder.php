@@ -9,11 +9,6 @@ class MomentTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Moment::create(array(
-			'action_id' => 1,
-            'message' => 'New task added',
-            'data' => json_encode(array('task_id' => 1)),
-		));
 	}
 
 }

@@ -4,6 +4,7 @@
  * Class Task
  *
  * @property Provider $provider
+ * @property Token[] $tokens
  */
 class Task extends Eloquent {
 
@@ -20,5 +21,13 @@ class Task extends Eloquent {
 	public function provider()
 	{
 		return $this->belongsTo('Provider');
+	}
+    
+	/**
+	 * @return mixed
+	 */
+	public function tokens()
+	{
+		return $this->hasMany('Token');
 	}
 }

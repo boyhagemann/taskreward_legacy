@@ -26,6 +26,12 @@ class ActionTableSeeder extends Seeder {
             'title' => 'New sale added',
             'visibility' => 'public',
 		));
+        
+		Action::create(array(
+			'name' => 'task_accepted',
+            'title' => 'Task accepted',
+            'visibility' => 'public',
+		));
 	}
 
 }

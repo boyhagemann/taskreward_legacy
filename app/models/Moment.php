@@ -18,7 +18,7 @@ class Moment extends Eloquent {
     
     protected $appends = array('ago');
     
-    protected $fillable = array('message', 'action_id', 'user_id');
+    protected $fillable = array('message', 'action_id', 'user_id', 'task_id', 'token_id');
 
     /**
 	 * @return Illuminate\Database\Eloquent\Relations\BelongsTo

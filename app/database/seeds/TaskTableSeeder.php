@@ -20,6 +20,18 @@ class TaskTableSeeder extends Seeder {
 			'value' => 100 / 0.91,
 			'currency' => 'EUR',
 		));
+        
+		Task::create(array(
+			'provider_id' => 1,
+			'uid' => 'uid2',
+			'product_title' => 'Bose BMT3',
+			'product_description' => 'Nice Audio thing',
+			'product_uri' => 'http://www.google.com',
+			'task' => 'Get people to buy this product',
+			'reward' => '60 euro',
+			'value' => 60 / 0.91,
+			'currency' => 'EUR',
+		));
 	}
 
 }
