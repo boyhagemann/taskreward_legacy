@@ -18,11 +18,11 @@ class CreateTokensTable extends Migration {
 			$table->timestamps();
 
 			$table->integer('task_id');
-			$table->integer('account_id');
+			$table->integer('user_id');
 			$table->string('key');
             $table->enum('status', array('active', 'inactive', 'accepted'));
 
-			$table->unique(array('task_id', 'account_id'));
+			$table->unique(array('task_id', 'user_id'));
 			$table->unique('key');
 
 		});

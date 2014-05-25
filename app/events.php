@@ -25,7 +25,7 @@ Event::listen('token.redirect', function(Token $token) {
     Moment::create(array(
         'message'       => sprintf('Your link is clicked (<a href="%s">%s</a>)...', $token->url, $token->key),
         'action_id'     => 2,
-        'account_id'    => $token->account->id,
+        'user_id'    => $token->user->id,
         'data'          => json_encode($token->toArray()),
     ));
     
@@ -44,12 +44,12 @@ Event::listen('api.token.update', function(Token $token) {
 Sale::created(function(Sale $sale) {
     
     $task = $sale->token->task;
-    $user = $sale->account->user;
+    $person = $sale->user->person;
             
     Moment::create(array(
-        'message'       => sprintf('%s sold: %s earns %s %s', $task->product_title, $user->name, $sale->value, $sale->currency),
+        'message'       => sprintf('%s sold: %s earns %s %s', $task->product_title, $person->name, $sale->value, $sale->currency),
         'action_id'     => 3,
-        'account_id'    => $sale->account->id,
+        'user_id'       => $sale->user->id,
         'data'          => json_encode($sale->toArray()),
     ));
     

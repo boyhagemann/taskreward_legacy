@@ -18,11 +18,11 @@ class CreateSalesTable extends Migration {
 			$table->timestamps();
 
 			$table->integer('token_id');
-			$table->integer('account_id');
+			$table->integer('user_id');
             $table->float('value');
             $table->string('currency');
 
-			$table->unique(array('token_id', 'account_id'));
+			$table->unique(array('token_id', 'user_id'));
             $table->index('value');
             $table->index('currency');
 		});

@@ -119,8 +119,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Teepluss\Api\ApiServiceProvider',
-
+        'Cartalyst\Sentry\SentryServiceProvider',
 	),
 
 	/*
@@ -187,6 +188,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'API' 			  => 'Teepluss\Api\Facades\API',
+        'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 
 	),
 

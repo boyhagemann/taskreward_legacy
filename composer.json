@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"teepluss/api": "1.*"
+        "barryvdh/laravel-ide-helper": "1.*",
+		"teepluss/api": "1.*",
+        "cartalyst/sentry": "2.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -25,6 +27,7 @@
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
+            "php artisan ide-helper:generate",
 			"php artisan optimize"
 		],
 		"post-create-project-cmd": [

@@ -9,14 +9,19 @@ class UserTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		User::create(array(
-			'first_name' => 'First',
-			'last_name' => 'User',
+		Sentry::createUser(array(
+			'email' => 'test@test.nl',
+            'password' => 'test',
+            'person_id' => 1,
+            'activated' => true,
 		));
         
-		User::create(array(
-			'first_name' => 'Second',
-			'last_name' => 'User',
+		Sentry::createUser(array(
+			'email' => 'test2@test2.nl',
+            'password' => 'test',
+            'parent_user_id' => 1,
+            'person_id' => 2,
+            'activated' => true,
 		));
 	}
 

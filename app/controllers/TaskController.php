@@ -35,7 +35,7 @@ class TaskController extends \BaseController {
 	{
         $token = Token::firstOrCreate(array(
             'task_id' => $task->id,
-            'account_id' => Auth::user()->id,
+            'user_id' => Auth::user()->id,
         ));
                 
 		return View::make('tasks.accept', compact('task', 'token'));

@@ -4,7 +4,7 @@
  * Class Task
  *
  * @property Token $token
- * @property Account $account
+ * @property User $user
  */
 class Sale extends Eloquent {
 
@@ -15,7 +15,7 @@ class Sale extends Eloquent {
 	 */
 	protected $table = 'sales';
     
-    protected $fillable = array('account_id', 'token_id', 'value', 'currency');
+    protected $fillable = array('user_id', 'token_id', 'value', 'currency');
 
     /**
 	 * @return Token
@@ -28,8 +28,8 @@ class Sale extends Eloquent {
     /**
 	 * @return Token
 	 */
-	public function account()
+	public function user()
 	{
-		return $this->belongsTo('Account');
+		return $this->belongsTo('User');
 	}
 }

@@ -17,24 +17,20 @@
         <li><a href="{{ URL::route('tasks.index') }}">Tasks</a></li>
         <li><a href="{{ URL::route('stream.index') }}">Stream</a></li>       
       </ul>
-      <form class="navbar-form navbar-left" action="{{ URL::route('tasks.index') }}" method="GET" role="search">
+      <form class="navbar-form navbar-left col-lg-9" action="{{ URL::route('tasks.index') }}" method="GET" role="search">
         <div class="form-group">
           <input type="text" name="q" class="form-control" placeholder="Search" value="{{{ Input::get('q') }}}">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        @if(Auth::check())
+        <li><a href="#" class="">My account</a></li>        
+        <li><a href="#" class="">Log out</a></li>        
+        @else  
+        <li><a href="#" class="">Sign up</a></li>
+        <li><a href="#" class="">Log in</a></li>
+        @endif
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

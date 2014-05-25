@@ -3,7 +3,7 @@
 /**
  * 
  * @property Task $task
- * @property Account $account
+ * @property User $user
  */
 class Token extends Eloquent  {
 
@@ -20,7 +20,7 @@ class Token extends Eloquent  {
     
     protected $appends = array('url');
     
-    protected $fillable = array('status', 'task_id', 'account_id');
+    protected $fillable = array('status', 'task_id', 'user_id');
     
 
     public static function boot()
@@ -59,9 +59,9 @@ class Token extends Eloquent  {
 	/**
 	 * @return Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
-	public function account()
+	public function user()
 	{
-		return $this->belongsTo('Account');
+		return $this->belongsTo('User');
 	}
     
     /**
