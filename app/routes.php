@@ -58,6 +58,17 @@ Route::get('register', array(
 
 
 
+Route::get('invite/{tokens}', array(
+    'uses'  => 'InvitationController@create',
+    'as'    => 'invitation.create'
+));    
+Route::post('invite/{tokens}', array(
+    'uses'  => 'InvitationController@store',
+    'as'    => 'invitation.store'
+));  
+
+
+
 Route::group(array('before' => 'auth', ), function() {    
 
     Route::get('logout', array(
@@ -67,9 +78,8 @@ Route::group(array('before' => 'auth', ), function() {
     Route::get('account/dashboard', array(
         'uses' => 'UserController@dashboard',
         'as' => 'user.dashboard',
-    ));
+    ));  
     
-    Route::resource('invitation', 'InvitationController');    
 });
 
 

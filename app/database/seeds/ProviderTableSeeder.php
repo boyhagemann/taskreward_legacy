@@ -10,8 +10,15 @@ class ProviderTableSeeder extends Seeder {
 	public function run()
 	{
 		Provider::create(array(
-			'name' => 'Products provider',
-			'description' => 'providing affiliate product links',
+            'id'            => 1,
+			'name'          => 'TaskReward',
+			'description'   => 'Workers network',
+		));
+        
+		Provider::create(array(
+            'id'            => 2,
+			'name'          => 'Products provider',
+			'description'   => 'Providing affiliate product links',
 		));
 	}
 

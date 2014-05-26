@@ -84,3 +84,9 @@ Event::listen('user.invite', function(User $user, $password) {
     });
     
 });
+
+Event::listen('token.redirect', function(Token $token) {
+    
+//    $token->task->setVisible(array('product_uri'));
+    $token->task->product_uri = str_replace('%5Btoken%5D', $token->key, $token->task->product_uri); 
+});
