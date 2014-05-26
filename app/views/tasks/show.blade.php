@@ -8,7 +8,7 @@
 @if($token)
 
 <div class="col-lg-6">    
-    <h2>Your link</h2>
+    <h2>{{ Lang::get('tasks.show.link_title') }}</h2>
     <div class="alert alert-info">
         <h4><a href="{{ $token->url }}" target="_blank">{{ $token->url }}</a></h4>
     </div>
@@ -29,7 +29,7 @@
 
 @else
 <div>
-    <a href="{{ URL::route('tasks.accept', $task->id) }}" class="btn btn-lg btn-primary">Let's do this!</a>
+    <a href="{{ URL::route('tasks.accept', $task->id) }}" class="btn btn-lg btn-primary">{{ Lang::get('tasks.show.accept') }}</a>
 </div>
 @endif
 
