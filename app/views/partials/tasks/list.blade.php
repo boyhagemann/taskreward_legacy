@@ -4,9 +4,9 @@
     <p>{{ $task->product_description }}</p>
     
     <dl class="dl-horizontal">
-        <dt>Your task:</dt>
+        <dt>{{ Lang::get('tasks.list.task') }}</dt>
         <dd>{{ $task->task }}</dd>
-        <dt>Your reward:</dt>
+        <dt>{{ Lang::get('tasks.list.reward') }}</dt>
         <dd>{{ $task->reward }}</dd>
     </dl>
 </article>

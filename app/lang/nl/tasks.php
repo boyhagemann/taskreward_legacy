@@ -13,6 +13,13 @@ return array(
 	|
 	*/
 
+	'list' => array(
+
+		'task' 		=> 'Jouw taak:',
+		'reward' 	=> 'Beloning:',
+
+	),
+
 	'show' => array(
 		'link_title'     => 'Gebruik deze link',
 		'accept'  		 => 'OK, ik doe het!',

@@ -13,6 +13,13 @@ return array(
 	|
 	*/
 
+	'list' => array(
+
+		'task' 		=> 'Your task:',
+		'reward' 	=> 'Reward:',
+
+	),
+
 	'show' => array(
 		'link_title'    	 => 'Use this link',
 		'accept'     		=> 'Let\'s do this',
