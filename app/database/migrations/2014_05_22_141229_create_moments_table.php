@@ -17,12 +17,12 @@ class CreateMomentsTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 
-			$table->string('message');
             $table->integer('action_id');
             $table->integer('user_id')->nullable();
             $table->integer('task_id')->nullable();
             $table->integer('token_id')->nullable();
             $table->integer('sale_id')->nullable();
+			$table->longText('params')->nullable();
 
 			$table->index('action_id');
 			$table->index('user_id');

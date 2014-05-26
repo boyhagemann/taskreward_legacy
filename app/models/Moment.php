@@ -15,10 +15,12 @@ class Moment extends Eloquent {
 	protected $table = 'moments';
     
     protected $with = 'action';
-    
-    protected $appends = array('ago');
-    
-    protected $fillable = array('message', 'action_id', 'user_id', 'task_id', 'token_id');
+
+    protected $fillable = array('action_id', 'user_id', 'task_id', 'token_id', 'params');
+
+	protected $visible = array('created_at');
+
+    protected $appends = array('text', 'ago');
 
     /**
 	 * @return Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -44,6 +46,35 @@ class Moment extends Eloquent {
     {
         return Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffForHumans();
     }
+
+	/**
+	 * @param array $params
+	 */
+	public function setParamsAttribute(Array $params)
+	{
+		$this->attributes['params'] = json_encode($params);
+	}
+
+	/**
+	 * @param $value
+	 * @return array
+	 */
+	public function getParamsAttribute($value)
+	{
+		return (array) json_decode($value, true);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTextAttribute()
+	{
+		$message = $this->action->message;
+
+		return isset($this->params['count'])
+			? Lang::choice($message, $this->params['count'], $this->params)
+			: Lang::get($message, $this->params);
+	}
 
     /**
      * 

@@ -8189,230 +8189,6 @@ namespace {
 		 }
 
 	}
-	class Mail extends \Illuminate\Support\Facades\Mail{
-		/**
-		 * Create a new Mailer instance.
-		 *
-		 * @param \Illuminate\View\Environment  $views
-		 * @param \Swift_Mailer  $swift
-		 * @return void
-		 * @static 
-		 */
-		 public static function __construct($views, $swift){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::__construct($views, $swift);
-		 }
-
-		/**
-		 * Set the global from address and name.
-		 *
-		 * @param string  $address
-		 * @param string  $name
-		 * @return void
-		 * @static 
-		 */
-		 public static function alwaysFrom($address, $name = null){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::alwaysFrom($address, $name);
-		 }
-
-		/**
-		 * Send a new message when only a plain part.
-		 *
-		 * @param string  $view
-		 * @param array   $data
-		 * @param mixed   $callback
-		 * @return int
-		 * @static 
-		 */
-		 public static function plain($view, $data, $callback){
-			//Method inherited from \Illuminate\Mail\Mailer
-			return \Illuminate\Mail\Mailer::plain($view, $data, $callback);
-		 }
-
-		/**
-		 * Send a new message using a view.
-		 *
-		 * @param string|array  $view
-		 * @param array  $data
-		 * @param Closure|string  $callback
-		 * @return int
-		 * @static 
-		 */
-		 public static function send($view, $data, $callback){
-			//Method inherited from \Illuminate\Mail\Mailer
-			return \Illuminate\Mail\Mailer::send($view, $data, $callback);
-		 }
-
-		/**
-		 * Queue a new e-mail message for sending.
-		 *
-		 * @param string|array  $view
-		 * @param array   $data
-		 * @param Closure|string  $callback
-		 * @param string  $queue
-		 * @return void
-		 * @static 
-		 */
-		 public static function queue($view, $data, $callback, $queue = null){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::queue($view, $data, $callback, $queue);
-		 }
-
-		/**
-		 * Queue a new e-mail message for sending on the given queue.
-		 *
-		 * @param string  $queue
-		 * @param string|array  $view
-		 * @param array   $data
-		 * @param Closure|string  $callback
-		 * @return void
-		 * @static 
-		 */
-		 public static function queueOn($queue, $view, $data, $callback){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::queueOn($queue, $view, $data, $callback);
-		 }
-
-		/**
-		 * Queue a new e-mail message for sending after (n) seconds.
-		 *
-		 * @param int  $delay
-		 * @param string|array  $view
-		 * @param array  $data
-		 * @param Closure|string  $callback
-		 * @param string  $queue
-		 * @return void
-		 * @static 
-		 */
-		 public static function later($delay, $view, $data, $callback, $queue = null){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::later($delay, $view, $data, $callback, $queue);
-		 }
-
-		/**
-		 * Queue a new e-mail message for sending after (n) seconds on the given queue.
-		 *
-		 * @param string  $queue
-		 * @param int  $delay
-		 * @param string|array  $view
-		 * @param array  $data
-		 * @param Closure|string  $callback
-		 * @return void
-		 * @static 
-		 */
-		 public static function laterOn($queue, $delay, $view, $data, $callback){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::laterOn($queue, $delay, $view, $data, $callback);
-		 }
-
-		/**
-		 * Handle a queued e-mail message job.
-		 *
-		 * @param \Illuminate\Queue\Jobs\Job  $job
-		 * @param array  $data
-		 * @return void
-		 * @static 
-		 */
-		 public static function handleQueuedMessage($job, $data){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::handleQueuedMessage($job, $data);
-		 }
-
-		/**
-		 * Tell the mailer to not really send messages.
-		 *
-		 * @param bool  $value
-		 * @return void
-		 * @static 
-		 */
-		 public static function pretend($value = true){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::pretend($value);
-		 }
-
-		/**
-		 * Get the view environment instance.
-		 *
-		 * @return \Illuminate\View\Environment
-		 * @static 
-		 */
-		 public static function getViewEnvironment(){
-			//Method inherited from \Illuminate\Mail\Mailer
-			return \Illuminate\Mail\Mailer::getViewEnvironment();
-		 }
-
-		/**
-		 * Get the Swift Mailer instance.
-		 *
-		 * @return \Swift_Mailer
-		 * @static 
-		 */
-		 public static function getSwiftMailer(){
-			//Method inherited from \Illuminate\Mail\Mailer
-			return \Illuminate\Mail\Mailer::getSwiftMailer();
-		 }
-
-		/**
-		 * Get the array of failed recipients.
-		 *
-		 * @return array
-		 * @static 
-		 */
-		 public static function failures(){
-			//Method inherited from \Illuminate\Mail\Mailer
-			return \Illuminate\Mail\Mailer::failures();
-		 }
-
-		/**
-		 * Set the Swift Mailer instance.
-		 *
-		 * @param \Swift_Mailer  $swift
-		 * @return void
-		 * @static 
-		 */
-		 public static function setSwiftMailer($swift){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::setSwiftMailer($swift);
-		 }
-
-		/**
-		 * Set the log writer instance.
-		 *
-		 * @param \Illuminate\Log\Writer  $logger
-		 * @return \Illuminate\Mail\Mailer
-		 * @static 
-		 */
-		 public static function setLogger($logger){
-			//Method inherited from \Illuminate\Mail\Mailer
-			return \Illuminate\Mail\Mailer::setLogger($logger);
-		 }
-
-		/**
-		 * Set the queue manager instance.
-		 *
-		 * @param \Illuminate\Queue\QueueManager  $queue
-		 * @return \Illuminate\Mail\Mailer
-		 * @static 
-		 */
-		 public static function setQueue($queue){
-			//Method inherited from \Illuminate\Mail\Mailer
-			return \Illuminate\Mail\Mailer::setQueue($queue);
-		 }
-
-		/**
-		 * Set the IoC container instance.
-		 *
-		 * @param \Illuminate\Container\Container  $container
-		 * @return void
-		 * @static 
-		 */
-		 public static function setContainer($container){
-			//Method inherited from \Illuminate\Mail\Mailer
-			 \Illuminate\Mail\Mailer::setContainer($container);
-		 }
-
-	}
 	class Paginator extends \Illuminate\Support\Facades\Paginator{
 		/**
 		 * Create a new pagination environment.
@@ -8627,88 +8403,6 @@ namespace {
 		 public static function getTranslator(){
 			//Method inherited from \Illuminate\Pagination\Environment
 			return \Illuminate\Pagination\Environment::getTranslator();
-		 }
-
-	}
-	class Password extends \Illuminate\Support\Facades\Password{
-		/**
-		 * Create a new password broker instance.
-		 *
-		 * @param \Illuminate\Auth\Reminders\ReminderRepositoryInterface  $reminders
-		 * @param \Illuminate\Auth\UserProviderInterface  $users
-		 * @param \Illuminate\Mail\Mailer  $mailer
-		 * @param string  $reminderView
-		 * @return void
-		 * @static 
-		 */
-		 public static function __construct($reminders, $users, $mailer, $reminderView){
-			//Method inherited from \Illuminate\Auth\Reminders\PasswordBroker
-			 \Illuminate\Auth\Reminders\PasswordBroker::__construct($reminders, $users, $mailer, $reminderView);
-		 }
-
-		/**
-		 * Send a password reminder to a user.
-		 *
-		 * @param array    $credentials
-		 * @param Closure  $callback
-		 * @return string
-		 * @static 
-		 */
-		 public static function remind($credentials, $callback = null){
-			//Method inherited from \Illuminate\Auth\Reminders\PasswordBroker
-			return \Illuminate\Auth\Reminders\PasswordBroker::remind($credentials, $callback);
-		 }
-
-		/**
-		 * Send the password reminder e-mail.
-		 *
-		 * @param \Illuminate\Auth\Reminders\RemindableInterface  $user
-		 * @param string   $token
-		 * @param Closure  $callback
-		 * @return int
-		 * @static 
-		 */
-		 public static function sendReminder($user, $token, $callback = null){
-			//Method inherited from \Illuminate\Auth\Reminders\PasswordBroker
-			return \Illuminate\Auth\Reminders\PasswordBroker::sendReminder($user, $token, $callback);
-		 }
-
-		/**
-		 * Reset the password for the given token.
-		 *
-		 * @param array    $credentials
-		 * @param Closure  $callback
-		 * @return mixed
-		 * @static 
-		 */
-		 public static function reset($credentials, $callback){
-			//Method inherited from \Illuminate\Auth\Reminders\PasswordBroker
-			return \Illuminate\Auth\Reminders\PasswordBroker::reset($credentials, $callback);
-		 }
-
-		/**
-		 * Set a custom password validator.
-		 *
-		 * @param \Closure  $callback
-		 * @return void
-		 * @static 
-		 */
-		 public static function validator($callback){
-			//Method inherited from \Illuminate\Auth\Reminders\PasswordBroker
-			 \Illuminate\Auth\Reminders\PasswordBroker::validator($callback);
-		 }
-
-		/**
-		 * Get the user for the given credentials.
-		 *
-		 * @param array  $credentials
-		 * @return \Illuminate\Auth\Reminders\RemindableInterface
-		 * @throws \UnexpectedValueException
-		 * @static 
-		 */
-		 public static function getUser($credentials){
-			//Method inherited from \Illuminate\Auth\Reminders\PasswordBroker
-			return \Illuminate\Auth\Reminders\PasswordBroker::getUser($credentials);
 		 }
 
 	}
@@ -13344,6 +13038,48 @@ namespace {
 		 public static function __call($method, $parameters){
 			//Method inherited from \Cartalyst\Sentry\Sentry
 			return \Cartalyst\Sentry\Sentry::__call($method, $parameters);
+		 }
+
+	}
+	class BootForm extends \AdamWathan\BootForms\Facades\BootForm{
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function __construct($basicFormBuilder, $horizontalFormBuilder){
+			//Method inherited from \AdamWathan\BootForms\BootForm
+			 \AdamWathan\BootForms\BootForm::__construct($basicFormBuilder, $horizontalFormBuilder);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function open(){
+			//Method inherited from \AdamWathan\BootForms\BootForm
+			 \AdamWathan\BootForms\BootForm::open();
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function openHorizontal($labelWidth, $controlWidth){
+			//Method inherited from \AdamWathan\BootForms\BootForm
+			 \AdamWathan\BootForms\BootForm::openHorizontal($labelWidth, $controlWidth);
+		 }
+
+		/**
+		 * 
+		 *
+		 * @static 
+		 */
+		 public static function __call($method, $parameters){
+			//Method inherited from \AdamWathan\BootForms\BootForm
+			 \AdamWathan\BootForms\BootForm::__call($method, $parameters);
 		 }
 
 	}

@@ -2,8 +2,8 @@
 
 @section('content')
 
-<h1>{{ $moment->action->title }}</h1>
-<h2>{{ $moment->message }}</h2>
+<h5>{{ $moment->ago }}</h5>
+<h1>{{ $moment->text }}</h1>
 
 @stop
 

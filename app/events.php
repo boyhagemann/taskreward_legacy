@@ -58,16 +58,13 @@ Event::listen('api.stream.index', function(QueryBuilder $qb) {
 
 
 Event::listen('token.redirect', function(Token $token) {
-    
-    $message = Lang::get('moments.clicked', $token->toArray());
-    
+
     Moment::create(array(
-        'message'       => $message,
-        'action_id'     => 2,
-        'user_id'       => $token->user_id,
-        'task_id'       => $token->task_id,
-        'token_id'      => $token->id,
-        'data'          => json_encode($token->toArray()),
+        'action_id' => 2,
+        'user_id'   => $token->user_id,
+        'task_id'   => $token->task_id,
+        'token_id'  => $token->id,
+        'params' 	=> $token->toArray(),
     ));
     
 });
@@ -87,21 +84,19 @@ Sale::created(function(Sale $sale) {
     $token  = $sale->token;
     $task   = $token->task;
     $person = $sale->user->person;
-    
-    $message = Lang::get('moments.sale', array(
-        'product'   => $task->product_title, 
-        'name'      => $person->name, 
-        'value'     => $sale->value, 
-        'currency'  => $sale->currency
-    ));    
-            
+
     Moment::create(array(
-        'message'   => $message,
         'action_id' => 3,
         'user_id'   => $sale->user->id,
         'task_id'   => $token->task_id,
         'token_id'  => $token->id,
         'sale_id'   => $sale->id,
+		'params' 	=> array(
+			'product'   => $task->product_title,
+			'name'      => $person->name,
+			'value'     => $sale->value,
+			'currency'  => $sale->currency
+		)
     ));
     
 });
@@ -122,39 +117,39 @@ Event::listen('invitation.stored', function(Collection $result, User $user) {
     $count = $result->sum(function($item) {
         return $item['success'];
     });
-    
-    $message = Lang::choice('moments.invitation', $count, array('name' => $user->person->name));
-    
+
     Moment::create(array(
-        'message'       => $message,
-        'action_id'     => 3,
-        'user_id'       => $user->id,
+        'action_id' => 5,
+        'user_id'   => $user->id,
+		'params' 	=> array(
+			'count' => $count,
+			'name' => $user->person->name
+		),
     ));
     
 });
 
 Event::listen('task.accepted', function(Token $token, User $user) {
-    
-    $message = Lang::get('moments.task_accepted', array('task' => $token->task->product_title));
-    
+
     Moment::create(array(
-        'message'       => $message,
-        'action_id'     => 4,
-        'user_id'       => $user->id,
-        'task_id'       => $token->task_id,
-        'token_id'      => $token->id,
+        'action_id' => 4,
+        'user_id'   => $user->id,
+        'task_id'   => $token->task_id,
+        'token_id'  => $token->id,
+		'params' 	=> array('task' => $token->task->product_title)
     ));
     
 });
 
 Task::created(function(Task $task) {
-    
-    $message = Lang::get('moments.task_added', array('url' => URL::route('tasks.show', $task->id), 'title' => $task->product_title));
 
     Moment::create(array(
         'action_id' => 1,
-        'message' => $message,
         'task_id' => $task->id,
+		'params' => array(
+			'url' => URL::route('tasks.show', $task->id),
+			'title' => $task->product_title
+		)
     ));
     
 });

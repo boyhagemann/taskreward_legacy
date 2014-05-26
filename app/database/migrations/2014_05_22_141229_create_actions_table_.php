@@ -19,6 +19,7 @@ class CreateActionsTable extends Migration {
 
 			$table->string('name');
 			$table->string('title');
+			$table->string('message');
 			$table->enum('visibility', array('public', 'private'));
 
 			$table->unique('name');

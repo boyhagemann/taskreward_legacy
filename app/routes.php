@@ -18,7 +18,7 @@ Route::get('/', array(
 
 Route::model('tasks', 'Task');
 Route::model('stream', 'Moment');
-Route::bind('token', function($key) {
+Route::bind('tokens', function($key) {
     return Token::where('key', $key)->firstOrFail();
 });
 
@@ -74,9 +74,10 @@ Route::group(array('before' => 'auth', ), function() {
 
 
 Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
-	Route::resource('task', 'TaskController');
+	Route::resource('tasks', 'TaskController');
 	Route::resource('stream', 'StreamController');
-	Route::resource('token', 'TokenController');
+	Route::resource('tokens', 'TokenController');
 });
+
 
 

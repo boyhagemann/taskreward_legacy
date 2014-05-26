@@ -10,27 +10,42 @@ class ActionTableSeeder extends Seeder {
 	public function run()
 	{
 		Action::create(array(
-			'name' => 'task_added',
-            'title' => 'New task added',
-            'visibility' => 'public',
+			'id' 			=> 1,
+			'name' 			=> 'task_added',
+			'message' 		=> 'moments.task_added',
+            'title' 		=> 'New task added',
+            'visibility' 	=> 'public',
 		));
         
 		Action::create(array(
-			'name' => 'link_clicked',
-            'title' => 'Link clicked',
-            'visibility' => 'private',
+			'id' 			=> 2,
+			'name' 			=> 'link_clicked',
+			'message'   	=> 'moments.message.clicked',
+            'visibility' 	=> 'private',
 		));
         
 		Action::create(array(
-			'name' => 'sale_added',
-            'title' => 'New sale added',
-            'visibility' => 'public',
+			'id' 			=> 3,
+			'name' 			=> 'sale_added',
+			'message'   	=> 'moments.sale',
+            'title' 		=> 'New sale added',
+            'visibility' 	=> 'public',
 		));
         
 		Action::create(array(
-			'name' => 'task_accepted',
-            'title' => 'Task accepted',
-            'visibility' => 'public',
+			'id' 			=> 4,
+			'name' 			=> 'task_accepted',
+			'message'   	=> 'moments.message.task_accepted',
+            'title' 		=> 'Task accepted',
+            'visibility' 	=> 'public',
+		));
+
+		Action::create(array(
+			'id' 			=> 5,
+			'name' 			=> 'user_invited',
+			'message'   	=> 'moments.invitation',
+            'title' 		=> 'Task accepted',
+            'visibility' 	=> 'public',
 		));
 	}
 
