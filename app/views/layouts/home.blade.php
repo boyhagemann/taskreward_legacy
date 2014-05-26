@@ -37,13 +37,13 @@
           
           <section class="col-lg-6">
              
-            <h2>Latest tasks</h2>
+            <h2>{{ Lang::get('home.tasks.title') }}</h2>
             @include('partials.tasks.list')
               
           </section>
           <section class="col-lg-6">
               
-            <h2>Stream</h2>
+            <h2>{{ Lang::get('home.stream.title') }}</h2>
             @include('partials.stream.list')
 
           </section>
