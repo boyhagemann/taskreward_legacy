@@ -78,8 +78,9 @@ class UserController extends \BaseController {
 	 */
 	public function dashboard()
 	{
-        $tasks = API::get('api/tasks', array('user_id' => Sentry::getUser()->id));
-        $rewards = API::get('api/rewards', array('user_id' => Sentry::getUser()->id));
+        $tasks 		= API::get('api/tasks', array('user_id' => Sentry::getUser()->id));
+        $rewards 	= API::get('api/rewards', array('user_id' => Sentry::getUser()->id));
+
         return View::make('user.dashboard', compact('tasks', 'rewards'));
 	}
     
