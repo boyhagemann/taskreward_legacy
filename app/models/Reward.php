@@ -6,14 +6,14 @@
  * @property Token $token
  * @property User $user
  */
-class Sale extends Eloquent {
+class Reward extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'sales';
+	protected $table = 'rewards';
     
     protected $fillable = array('user_id', 'token_id', 'value', 'currency');
 

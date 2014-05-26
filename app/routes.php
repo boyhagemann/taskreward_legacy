@@ -17,12 +17,14 @@ Route::get('/', array(
 ));
 
 Route::model('tasks', 'Task');
+Route::model('rewards', 'Reward');
 Route::model('stream', 'Moment');
 Route::bind('tokens', function($key) {
     return Token::where('key', $key)->firstOrFail();
 });
 
 Route::resource('tasks', 'TaskController');
+Route::resource('rewards', 'RewardController');
 Route::resource('stream', 'StreamController');
 Route::get('tasks/{tasks}/accept', array(
     'before' => 'auth',
@@ -75,6 +77,7 @@ Route::group(array('before' => 'auth', ), function() {
 
 Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
 	Route::resource('tasks', 'TaskController');
+	Route::resource('rewards', 'RewardController');
 	Route::resource('stream', 'StreamController');
 	Route::resource('tokens', 'TokenController');
 });

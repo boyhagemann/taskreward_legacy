@@ -1,6 +1,6 @@
 <?php
 
-class SaleRepository
+class RewardRepository
 {
     /**
      * 
@@ -18,7 +18,7 @@ class SaleRepository
      */
     public static function createFromUser(User $user, Token $token, $value)
     {        
-        Sale::create(array(
+        Reward::create(array(
             'user_id' => $user->id,
             'token_id' => $token->id,
             'value' => round($value, 2),      

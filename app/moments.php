@@ -28,23 +28,23 @@ Event::listen('token.redirect', function(Token $token) {
     
 });
 
-Sale::created(function(Sale $sale) {
+Reward::created(function(Reward $reward) {
     
-    $token  = $sale->token;
+    $token  = $reward->token;
     $task   = $token->task;
-    $person = $sale->user->person;
+    $person = $reward->user->person;
 
     Moment::create(array(
         'action_id' => 3,
-        'user_id'   => $sale->user->id,
+        'user_id'   => $reward->user->id,
         'task_id'   => $token->task_id,
         'token_id'  => $token->id,
-        'sale_id'   => $sale->id,
+        'reward_id' => $reward->id,
 		'params' 	=> array(
 			'product'   => $task->product_title,
 			'name'      => $person->name,
-			'value'     => $sale->value,
-			'currency'  => $sale->currency
+			'value'     => $reward->value,
+			'currency'  => $reward->currency
 		)
     ));
     

@@ -31,6 +31,15 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
     });    
 });
 
+Event::listen('api.rewards.index', function(QueryBuilder $qb) {
+
+	if(!Input::get('user_id')) {
+		return;
+	}
+
+	$qb->where('user_id', Input::get('user_id'));
+});
+
 Event::listen('api.stream.index', function(QueryBuilder $qb) {
     
     if(!Input::get('user_id')) {
@@ -62,7 +71,7 @@ Event::listen('api.token.update', function(Token $token) {
         return;
     }
     
-    SaleRepository::createFromToken($token);
+    RewardRepository::createFromToken($token);
     
 });
 

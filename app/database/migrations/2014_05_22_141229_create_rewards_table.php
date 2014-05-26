@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSalesTable extends Migration {
+class CreateRewardsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateSalesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('sales', function(Blueprint $table)
+		Schema::create('rewards', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
@@ -35,7 +35,7 @@ class CreateSalesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sales');
+		Schema::drop('rewards');
 	}
 
 }
