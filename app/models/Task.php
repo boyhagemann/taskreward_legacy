@@ -15,6 +15,8 @@ class Task extends Eloquent {
 	 */
 	protected $table = 'tasks';
 
+	protected $visible = array('id', 'created_at', 'task', 'reward', 'product_title', 'product_description');
+
 	/**
 	 * @return mixed
 	 */

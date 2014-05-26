@@ -30,7 +30,7 @@ Route::get('tasks/{tasks}/accept', array(
     'as' => 'tasks.accept',
 ));
 
-Route::get('r/{token}', array(
+Route::get('r/{tokens}', array(
     'uses' => 'TokenController@redirect',
     'as' => 'token.redirect',
 ));

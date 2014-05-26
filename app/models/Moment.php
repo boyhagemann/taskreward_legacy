@@ -18,7 +18,7 @@ class Moment extends Eloquent {
 
     protected $fillable = array('action_id', 'user_id', 'task_id', 'token_id', 'params');
 
-	protected $visible = array('created_at');
+	protected $visible = array('id', 'created_at');
 
     protected $appends = array('text', 'ago');
 
