@@ -23,7 +23,7 @@ Event::listen('token.redirect', function(Token $token) {
         'user_id'   => $token->user_id,
         'task_id'   => $token->task_id,
         'token_id'  => $token->id,
-        'params' 	=> $token->toArray(),
+        'params' 	=> array('key' => $token->key, 'url' => $token->url),
     ));
     
 });

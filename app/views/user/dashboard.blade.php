@@ -33,7 +33,7 @@
 <div class="row">
 
 	<div class="col-lg-4">
-		<a href="{{ URL::route('invitation.create') }}" class="btn btn-primary btn-lg">Invite users</a>
+		<a href="{{ $invite->url }}" class="btn btn-primary btn-lg">Invite users</a>
 	</div>
 
 </div>

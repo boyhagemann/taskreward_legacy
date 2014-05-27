@@ -82,7 +82,16 @@ Event::listen('user.invite', function(User $user, $password) {
         $message->from($user->parent->email);
         $message->subject(sprintf('%s has invited you', $user->name));
     });
-    
+
+});
+
+User::created(function(User $user) {
+
+	Token::firstOrCreate(array(
+		'task_id' => 1, // Invite people
+		'user_id' => $user->id,
+	));
+
 });
 
 Event::listen('token.redirect', function(Token $token) {

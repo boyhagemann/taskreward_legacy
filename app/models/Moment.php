@@ -69,11 +69,12 @@ class Moment extends Eloquent {
 	 */
 	public function getTextAttribute()
 	{
+		$params = $this->params;
 		$message = $this->action->message;
 
-		return isset($this->params['count'])
-			? Lang::choice($message, $this->params['count'], $this->params)
-			: Lang::get($message, $this->params);
+		return isset($params['count'])
+			? Lang::choice($message, $params['count'], $params)
+			: Lang::get($message, $params);
 	}
 
     /**

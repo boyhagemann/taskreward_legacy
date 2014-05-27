@@ -20,6 +20,7 @@ class ActionTableSeeder extends Seeder {
 		Action::create(array(
 			'id' 			=> 2,
 			'name' 			=> 'link_clicked',
+			'title' 		=> 'Link clicked',
 			'message'   	=> 'moments.clicked',
             'visibility' 	=> 'private',
 		));
@@ -44,7 +45,7 @@ class ActionTableSeeder extends Seeder {
 			'id' 			=> 5,
 			'name' 			=> 'user_invited',
 			'message'   	=> 'moments.invitation',
-            'title' 		=> 'Task accepted',
+            'title' 		=> 'User invited',
             'visibility' 	=> 'public',
 		));
 	}
