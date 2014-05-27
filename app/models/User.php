@@ -29,6 +29,8 @@ class User extends SentryUser implements RemindableInterface {
 	 */
 	protected $hidden = array('password');
 
+	protected $visible = array('id', 'created_at', 'activated', 'person');
+
 	/**
 	 * Get the e-mail address where password reminders are sent.
 	 *

@@ -16,6 +16,8 @@ class Person extends Eloquent {
     
     protected $fillable = array('first_name', 'last_name');
 
+	protected $visible = array('id');
+
     protected $appends = array('name');
     
     /**

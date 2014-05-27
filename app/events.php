@@ -40,6 +40,19 @@ Event::listen('api.rewards.index', function(QueryBuilder $qb) {
 	$qb->where('user_id', Input::get('user_id'));
 });
 
+Event::listen('api.rewards.index', function(QueryBuilder $qb) {
+
+	if(!Input::get('with')) {
+		return;
+	}
+
+	$with = explode(',', Input::get('with'));
+	foreach($with as $relation) {
+
+		$qb->with($relation);
+	}
+});
+
 Event::listen('api.stream.index', function(QueryBuilder $qb) {
     
     if(!Input::get('user_id')) {

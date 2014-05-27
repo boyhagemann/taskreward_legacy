@@ -14,7 +14,7 @@ class RewardController extends \BaseController {
 		$q = Reward::query();
         
         Event::fire('api.index', $q);
-        Event::fire('api.reward.index', $q);
+        Event::fire('api.rewards.index', $q);
 
 		return $q->get();
 	}
