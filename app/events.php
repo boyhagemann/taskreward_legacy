@@ -53,6 +53,48 @@ Event::listen('api.rewards.index', function(QueryBuilder $qb) {
 	}
 });
 
+Event::listen('api.rewards.collection', function(Collection $collection) {
+
+	if(!Input::get('interval') || !Input::get('period')) {
+		return;
+	}
+
+	$grouped = $collection->groupBy(function($item) {
+		return $item['created_at']->toDateString();
+	});
+
+	$totals = array();
+	foreach($grouped as $date => $items) {
+
+		$collection = new Collection($items);
+		$value = $collection->sum(function($item) {
+			return $item['value'];
+		});
+
+		$totals[$date] = compact('date', 'value');
+	}
+
+
+	switch(Input::get('period')) {
+
+		case 'week':
+
+			foreach(range(0, 7) as $day) {
+				$date = Carbon\Carbon::now()->subDays($day)->toDateString();
+				$totals = array_merge(array($date => array('date' => $date, 'value' => 0)), $totals);
+			}
+
+			ksort($totals);
+			$totals = array_values($totals);
+
+			break;
+
+	}
+
+	return new Collection($totals);
+});
+
+
 Event::listen('api.stream.index', function(QueryBuilder $qb) {
     
     if(!Input::get('user_id')) {

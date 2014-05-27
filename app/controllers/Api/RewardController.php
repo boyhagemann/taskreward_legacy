@@ -16,7 +16,11 @@ class RewardController extends \BaseController {
         Event::fire('api.index', $q);
         Event::fire('api.rewards.index', $q);
 
-		return $q->get();
+		$collection = $q->get();
+
+		$collection = Event::until('api.rewards.collection', $collection);
+
+		return $collection;
 	}
 
 

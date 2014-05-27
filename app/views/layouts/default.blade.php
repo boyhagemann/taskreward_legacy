@@ -20,10 +20,12 @@
   <body>
       
     @include('partials.navbar')
-    
+
       <div class="container">
-          
-        @include('partials.messages')
+		  <!--Div that will hold the pie chart-->
+		  <div id="chart_div"></div>
+
+		  @include('partials.messages')
         
           <section class="col-lg-9">
               @yield('content')
@@ -36,6 +38,6 @@
 
     {{ HTML::script("https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js") }}
     {{ HTML::script("//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js") }}
-    
+
   </body>
 </html>
