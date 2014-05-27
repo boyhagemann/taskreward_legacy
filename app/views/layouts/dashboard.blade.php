@@ -33,7 +33,7 @@
 		  // draws it.
 		  function loadChart() {
 
-			  var rewards = $.get('http://localhost/taskreward/public/api/rewards?interval=day&period=week', function(collection) {
+			  var rewards = $.get('http://localhost/taskreward/public/api/rewards?user_id=1&interval=day&period=week', function(collection) {
 				  drawChart(collection);
 			  });
 
