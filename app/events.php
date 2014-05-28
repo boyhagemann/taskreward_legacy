@@ -53,6 +53,7 @@ Event::listen('api.rewards.index', function(QueryBuilder $qb) {
 	}
 });
 
+
 Event::listen('api.rewards.collection', function(Collection $collection) {
 
 	if(!Input::get('interval') || !Input::get('period')) {

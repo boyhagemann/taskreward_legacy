@@ -18,9 +18,9 @@ class RewardController extends \BaseController {
 
 		$collection = $q->get();
 
-		$collection = Event::until('api.rewards.collection', $collection);
+		$result = Event::until('api.rewards.collection', $collection);
 
-		return $collection;
+		return $result ? $result : $collection;
 	}
 
 
