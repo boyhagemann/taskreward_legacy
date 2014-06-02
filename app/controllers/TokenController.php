@@ -12,7 +12,7 @@ class TokenController extends \BaseController
 	{
         Event::fire('token.redirect', array($token));
         
-        $url = $token->task->product_uri;
+        $url = $token->task->uri;
 		return Redirect::to($url);
 	}
 

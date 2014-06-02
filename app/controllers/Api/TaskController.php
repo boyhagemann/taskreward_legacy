@@ -1,6 +1,6 @@
 <?php namespace Api;
 
-use Task, Event;
+use Task, Event, Exception;
 
 class TaskController extends \BaseController {
 
@@ -38,9 +38,45 @@ class TaskController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		if(Input::get('tasks')) {
+			return $this->batch();
+		}
+
+		try {
+
+			$task = new Task;
+			$task->fill(Input::all());
+			$task->save();
+
+			return array(
+				'success' => true,
+				'messages' => array('Task created'),
+			);
+
+		}
+		catch(Exception $e) {
+
+			return array(
+				'success' => true,
+				'messages' => array($e->getMessage()),
+			);
+
+		}
 	}
 
+	/**
+	 * @return Response|array
+	 */
+	protected function batch()
+	{
+		$response = array();
+		foreach(Input::get('batch') as $task) {
+			Input::replace($task);
+			$response = $this->store();
+		}
+
+		return $response;
+	}
 
 	/**
 	 * Display the specified resource.

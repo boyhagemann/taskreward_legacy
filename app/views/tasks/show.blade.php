@@ -2,8 +2,8 @@
 
 @section('content')
 
-<h1>{{ $task->product_title }}</h1>
-<p>{{ $task->product_description }}</p>
+<h1>{{ $task->title }}</h1>
+<p>{{ $task->description }}</p>
 
 @if($token)
 
