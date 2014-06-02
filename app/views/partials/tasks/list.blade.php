@@ -5,9 +5,9 @@
     
     <dl class="dl-horizontal">
         <dt>{{ Lang::get('tasks.list.task') }}</dt>
-        <dd>Vul taak in</dd>
+        <dd>{{ $task->type->title }}</dd>
         <dt>{{ Lang::get('tasks.list.reward') }}</dt>
-        <dd>Vul reward in</dd>
+        <dd>{{ $task->reward }}</dd>
     </dl>
 </article>
 @endforeach

@@ -4,6 +4,7 @@
  * Class Task
  *
  * @property Provider $provider
+ * @property TaskType $type
  * @property Token[] $tokens
  */
 class Task extends Eloquent {
@@ -15,7 +16,9 @@ class Task extends Eloquent {
 	 */
 	protected $table = 'tasks';
 
-	protected $visible = array('id', 'created_at', 'title', 'description', 'uri');
+	protected $visible = array('id', 'created_at', 'title', 'description', 'uri', 'type', 'provider');
+
+	protected $appends = array('reward');
 
 	/**
 	 * @return mixed
@@ -24,6 +27,14 @@ class Task extends Eloquent {
 	{
 		return $this->belongsTo('Provider');
 	}
+
+	/**
+	 * @return mixed
+	 */
+	public function type()
+	{
+		return $this->belongsTo('TaskType', 'task_type_id');
+	}
     
 	/**
 	 * @return mixed
@@ -31,5 +42,13 @@ class Task extends Eloquent {
 	public function tokens()
 	{
 		return $this->hasMany('Token');
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRewardAttribute()
+	{
+		return $this->value . ' ' . $this->currency;
 	}
 }

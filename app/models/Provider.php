@@ -17,6 +17,8 @@ class Provider extends Eloquent {
 	 */
 	protected $table = 'providers';
 
+	protected $visible = array('id', 'name', 'description');
+
 	/**
 	 * @return mixed
 	 */

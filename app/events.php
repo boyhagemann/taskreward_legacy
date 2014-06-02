@@ -21,6 +21,18 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
 });
 
 Event::listen('api.task.index', function(QueryBuilder $qb) {
+
+	if(!Input::get('with')) {
+		return;
+	}
+
+	$with = explode(',', Input::get('with'));
+	foreach($with as $relation) {
+		$qb->with($relation);
+	}
+});
+
+Event::listen('api.task.index', function(QueryBuilder $qb) {
     
     if(!Input::get('user_id')) {     
         return;
