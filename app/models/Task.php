@@ -18,6 +18,8 @@ class Task extends Eloquent {
 
 	protected $visible = array('id', 'created_at', 'title', 'description', 'uri', 'type', 'provider');
 
+	protected $fillable = array('uid', 'title', 'description', 'uri', 'value', 'currency', 'provider_id', 'task_type_id');
+
 	protected $appends = array('reward');
 
 	/**

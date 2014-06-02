@@ -1,6 +1,6 @@
 <?php namespace Api;
 
-use Task, Event, Exception;
+use Task, Event, Input, Exception;
 
 class TaskController extends \BaseController {
 
@@ -57,7 +57,7 @@ class TaskController extends \BaseController {
 		catch(Exception $e) {
 
 			return array(
-				'success' => true,
+				'success' => false,
 				'messages' => array($e->getMessage()),
 			);
 
@@ -70,9 +70,9 @@ class TaskController extends \BaseController {
 	protected function batch()
 	{
 		$response = array();
-		foreach(Input::get('batch') as $task) {
+		foreach(Input::get('tasks') as $task) {
 			Input::replace($task);
-			$response = $this->store();
+			$response[] = $this->store();
 		}
 
 		return $response;
