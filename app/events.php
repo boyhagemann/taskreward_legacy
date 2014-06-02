@@ -14,8 +14,8 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
     foreach($parts as $q) {
         
         $qb->where(function($qb) use($q) {
-            $qb->orWhere('product_title', 'LIKE', '%' . $q .'%');
-            $qb->orWhere('product_description', 'LIKE', '%' . $q .'%');
+            $qb->orWhere('title', 'LIKE', '%' . $q .'%');
+            $qb->orWhere('description', 'LIKE', '%' . $q .'%');
         });        
     }
 });
@@ -165,5 +165,5 @@ User::created(function(User $user) {
 Event::listen('token.redirect', function(Token $token) {
     
 //    $token->task->setVisible(array('product_uri'));
-    $token->task->product_uri = str_replace('%5Btoken%5D', $token->key, $token->task->product_uri); 
+    $token->task->uri = str_replace('%5Btoken%5D', $token->key, $token->task->uri);
 });

@@ -9,7 +9,10 @@ class TaskController extends \BaseController {
 	 */
 	public function index()
 	{
-		$tasks = API::get('api/tasks', Input::all());
+		$tasks = API::get('api/tasks', array(
+			'with' => 'type',
+			'q' => Input::get('q')
+		));
 
 		return View::make('tasks.index', compact('tasks'));
 	}
