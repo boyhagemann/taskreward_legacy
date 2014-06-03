@@ -4,7 +4,7 @@
 
 <h1>{{ Lang::get('tasks.index.heading') }}</h1>
 
-{{ $tasks->links() }}
+<hr>
 
 @include('partials.tasks.list')
 

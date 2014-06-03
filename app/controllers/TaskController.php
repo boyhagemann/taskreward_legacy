@@ -47,9 +47,8 @@ class TaskController extends \BaseController {
 	{
         $stream = API::get('api/stream', array(
             'task_id' => $task->id,
-            'user_id' => Sentry::check() ? Sentry::getUser()->id : null,
         ));
-        
+
 		return View::make('tasks.show', compact('task', 'stream'));
 	}
 

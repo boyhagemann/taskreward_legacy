@@ -36,8 +36,21 @@
           
       </div>
 
+	  <div class="container-fluid container-bottom">
+
+		  <div class="container">
+
+			  <section class="col-lg-9">
+				  @yield('bottom')
+			  </section>
+
+		  </div>
+
+	  </div>
+
     {{ HTML::script("https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js") }}
     {{ HTML::script("//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js") }}
+    {{ HTML::script("//cdnjs.cloudflare.com/ajax/libs/holder/2.3.1/holder.min.js") }}
 
   </body>
 </html>

@@ -36,7 +36,7 @@
 @stop
 
 
-@section('sidebar')
+@section('bottom')
 
 <h2>Task activity</h2>
 @include('partials.stream.list')

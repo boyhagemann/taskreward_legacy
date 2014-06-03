@@ -16,7 +16,7 @@ class StreamController extends \BaseController {
         Event::fire('api.index', array($q));
         Event::fire('api.stream.index', array($q));
 
-		return $q->get();
+		return $q->paginate(Input::get('limit') ?: 10);
 	}
 
 

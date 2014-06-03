@@ -21,7 +21,7 @@
 
     @include('partials.navbar', ['form' => false])
 
-    <div class="jumbotron">
+    <div class="jumbotron home-visual">
         <div class="container">
             <div class="col-lg-12">
 
