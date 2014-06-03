@@ -17,13 +17,12 @@ class CreateRewardsTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 
-			$table->integer('token_id');
 			$table->integer('user_id');
 			$table->integer('task_id');
             $table->float('value');
             $table->string('currency');
 
-			$table->unique(array('token_id', 'user_id'));
+			$table->index('user_id');
             $table->index('task_id');
             $table->index('value');
             $table->index('currency');

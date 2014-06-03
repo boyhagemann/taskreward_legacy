@@ -28,16 +28,14 @@ Event::listen('token.redirect', function(User $user, Task $task, $token) {
 });
 
 Reward::created(function(Reward $reward) {
-    
-    $token  = $reward->token;
-    $task   = $token->task;
+
+    $task   = $reward->task;
     $person = $reward->user->person;
 
     Moment::create(array(
         'action_id' => 3,
-        'user_id'   => $reward->user->id,
-        'task_id'   => $token->task_id,
-        'token_id'  => $token->id,
+        'user_id'   => $reward->user_id,
+        'task_id'   => $reward->task_id,
         'reward_id' => $reward->id,
 		'params' 	=> array(
 			'product'   => $task->product_title,
@@ -47,18 +45,6 @@ Reward::created(function(Reward $reward) {
 		)
     ));
     
-});
-
-Event::listen('task.accepted', function(Token $token, User $user) {
-
-	Moment::create(array(
-		'action_id' => 4,
-		'user_id'   => $user->id,
-		'task_id'   => $token->task_id,
-		'token_id'  => $token->id,
-		'params' 	=> array('task' => $token->task->product_title)
-	));
-
 });
 
 Event::listen('invitation.stored', function(Collection $result, User $user) {

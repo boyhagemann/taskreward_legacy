@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder {
 		 $this->call('MomentTableSeeder');
 		 $this->call('PersonTableSeeder');
 		 $this->call('UserTableSeeder');
-		 $this->call('TokenTableSeeder');
 		 $this->call('RewardTableSeeder');
 	}
 

@@ -3,7 +3,6 @@
 /**
  * Class Task
  *
- * @property Token $token
  * @property User $user
  * @property Task $task
  * @property Moment[] $moment
@@ -17,18 +16,10 @@ class Reward extends Eloquent {
 	 */
 	protected $table = 'rewards';
     
-    protected $fillable = array('user_id', 'task_id', 'token_id', 'value', 'currency');
+    protected $fillable = array('user_id', 'task_id', 'value', 'currency');
 
 	protected $visible = array('id', 'created_at', 'value', 'currency', 'task', 'user', 'stream');
 
-    /**
-	 * @return Token
-	 */
-	public function token()
-	{
-		return $this->belongsTo('Token');
-	}
-    
     /**
 	 * @return Token
 	 */
@@ -51,6 +42,6 @@ class Reward extends Eloquent {
 	 */
 	public function stream()
 	{
-		return $this->hasMany('Moment', 'token_id', 'token_id');
+		return $this->hasMany('Moment', 'task_id', 'task_id');
 	}
 }
