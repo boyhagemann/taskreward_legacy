@@ -17,7 +17,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body class="layout-default">
 
 	  @include('partials.navbar', ['form' => true])
 

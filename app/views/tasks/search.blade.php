@@ -6,8 +6,6 @@
 
 <hr>
 
-{{ $tasks->links() }}
-
 @include('partials.tasks.list')
 
 {{ $tasks->links() }}

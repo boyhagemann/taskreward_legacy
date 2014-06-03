@@ -2,17 +2,29 @@
 
 @section('content')
 
-<h1>{{ $task->title }}</h1>
-<p>{{ $task->description }}</p>
+<article class="row task">
 
-<h4><span class="label label-success">{{ Lang::get('tasks.show.badge') }}</span> {{ Lang::get('tasks.show.task', ['task' => $task->type->title, 'reward' => $task->reward]) }}</h4>
+	<div class="col-lg-2 task__image_container">
+		<img class="media-object" src="holder.js/120x120" alt="...">
+	</div>
+
+	<div class="col-lg-10">
+
+		<h1>{{ $task->title }}</h1>
+		<p>{{ $task->description }}</p>
+
+		<h4><span class="label label-success">{{ Lang::get('tasks.show.badge') }}</span> {{ Lang::get('tasks.show.task', ['task' => $task->type->title, 'reward' => $task->reward]) }}</h4>
+
+	</div>
+
+</article>
 
 <hr>
 
 @if($task->tokenUrl)
 
 <div class="col-lg-6">    
-    <h2>{{ Lang::get('tasks.show.link_title') }}</h2>
+    <h3>{{ Lang::get('tasks.show.link_title') }}</h3>
     <div class="well well-lg">
         <h4><a href="{{ $task->tokenUrl }}" target="_blank">{{ $task->tokenUrl }}</a></h4>
     </div>
@@ -23,7 +35,7 @@
 </div>
 
 <div class="col-lg-6">    
-    <h2>Tips</h2>
+    <h3>Tips</h3>
     <ul>
         <li>Share this link on your favorite social media.</li>
         <li>Mail this link to someone you know who.</li>

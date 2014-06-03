@@ -2,6 +2,10 @@ body {
     padding-top: 50px;
 }
 
+.layout-default {
+	padding-top: 80px;
+}
+
 .home-visual {
 	padding: 200px 0;
 }
@@ -18,4 +22,9 @@ body {
 }
 .task-list-item__title-link {
 	color: #000000;
+}
+
+
+.task__image_container {
+	padding-top: 30px;
 }
