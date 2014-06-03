@@ -1,6 +1,6 @@
 <?php namespace Api;
 
-use Moment, Event;
+use Moment, Event, Input;
 
 class StreamController extends \BaseController {
 
