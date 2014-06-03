@@ -22,7 +22,10 @@ Route::model('stream', 'Moment');
 Route::bind('tokens', function($key) {
     return Token::where('key', $key)->firstOrFail();
 });
-
+Route::get('tasks/{q}', array(
+	'uses' => 'TaskController@search',
+	'as' => 'tasks.search',
+));
 Route::resource('tasks', 'TaskController');
 Route::resource('rewards', 'RewardController');
 Route::resource('stream', 'StreamController');

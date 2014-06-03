@@ -9,9 +9,29 @@ class TaskController extends \BaseController {
 	 */
 	public function index()
 	{
+		if(Input::get('q')) {
+			return Redirect::route('tasks.search', Input::only('q'));
+		}
+
 		$tasks = API::get('api/tasks', array(
-			'with' => 'type',
-			'q' => Input::get('q')
+			'with' 	=> 'type',
+			'page'	=> Input::get('page'),
+		));
+
+		return View::make('tasks.index', compact('tasks'));
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function search($q)
+	{
+		$tasks = API::get('api/tasks', array(
+			'with' 	=> 'type',
+			'q' 	=> $q,
+			'page'	=> Input::get('page'),
 		));
 
 		return View::make('tasks.index', compact('tasks'));
