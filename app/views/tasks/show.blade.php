@@ -5,11 +5,15 @@
 <h1>{{ $task->title }}</h1>
 <p>{{ $task->description }}</p>
 
+<h4><span class="label label-success">{{ Lang::get('tasks.show.badge') }}</span> {{ Lang::get('tasks.show.task', ['task' => $task->type->title, 'reward' => $task->reward]) }}</h4>
+
+<hr>
+
 @if($task->tokenUrl)
 
 <div class="col-lg-6">    
     <h2>{{ Lang::get('tasks.show.link_title') }}</h2>
-    <div class="alert alert-info">
+    <div class="well well-lg">
         <h4><a href="{{ $task->tokenUrl }}" target="_blank">{{ $task->tokenUrl }}</a></h4>
     </div>
     <p>

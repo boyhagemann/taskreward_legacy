@@ -33,8 +33,10 @@ return array(
 	),
 
 	'show' => array(
-		'link_title'    	 => 'Use this link',
+		'link_title'    	=> 'Use this link',
 		'login'     		=> 'Log in to view the link',
+		'task'  		 	=> ':task to earn :reward',
+		'badge'  		 	=> 'Your task',
 	),
 
 );
