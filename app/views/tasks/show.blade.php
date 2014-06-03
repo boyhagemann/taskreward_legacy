@@ -19,38 +19,32 @@
 
 </article>
 
-<hr>
+@stop
+
+
+@section('sidebar')
 
 @if($task->tokenUrl)
 
-<div class="col-lg-6">    
-    <h3>{{ Lang::get('tasks.show.link_title') }}</h3>
-    <div class="well well-lg">
-        <h4><a href="{{ $task->tokenUrl }}" target="_blank">{{ $task->tokenUrl }}</a></h4>
-    </div>
-    <p>
-        With this link we can trace back the task when it's completed.
-        You cannot collect your reward if you don't use this link.
-    </p>
-</div>
-
-<div class="col-lg-6">    
-    <h3>Tips</h3>
-    <ul>
-        <li>Share this link on your favorite social media.</li>
-        <li>Mail this link to someone you know who.</li>
-        <li>Stay on top of your stream to view all activity</li>
-    </ul>
-</div>
+<h3>{{ Lang::get('tasks.show.link_title') }}</h3>
+<h4><a href="{{ $task->tokenUrl }}" target="_blank">{{ $task->tokenUrl }}</a></h4>
 
 @else
 <div>
-    <a href="{{ URL::route('user.login') }}" class="btn btn-lg btn-primary">{{ Lang::get('tasks.show.login') }}</a>
+	<a href="{{ URL::route('user.login') }}" class="btn btn-lg btn-primary">{{ Lang::get('tasks.show.login') }}</a>
 </div>
 @endif
 
-@stop
+<hr>
 
+<h3>Tips</h3>
+<ul>
+	<li>Share this link on your favorite social media.</li>
+	<li>Mail this link to someone you know who.</li>
+	<li>Stay on top of your stream to view all activity</li>
+</ul>
+
+@stop
 
 @section('bottom')
 

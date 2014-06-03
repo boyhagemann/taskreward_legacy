@@ -17,14 +17,30 @@ body {
 	padding: 30px 0 100px;
 }
 
-.task-list-item__title {
+
+
+.task-list__title {
 	font-size: 1.4em;
 }
-.task-list-item__title-link {
+.task-list__title-link {
 	color: #000000;
 }
 
 
 .task__image_container {
 	padding-top: 30px;
+}
+
+.task-list {
+	padding-top: 20px;
+}
+.task-list__item {
+	margin-bottom: 40px;
+}
+.task-list .task-list__dt {
+	text-align: left;
+	width: 100px;
+}
+.task-list .task-list__dd {
+	margin-left: 100px;
 }
