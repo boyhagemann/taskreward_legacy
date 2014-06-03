@@ -34,7 +34,7 @@ return array(
 
 	'show' => array(
 		'link_title'     => 'Gebruik deze link',
-		'accept'  		 => 'OK, ik doe het!',
+		'login'  		 => 'Login om de link te zien',
 	),
 
 );

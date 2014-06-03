@@ -9,5 +9,9 @@
         <dt>{{ Lang::get('tasks.list.reward') }}</dt>
         <dd>{{ $task->reward }}</dd>
     </dl>
+
+	@if($task->tokenUrl)
+	<p><a href="{{ $task->tokenUrl }}">{{ $task->tokenUrl }}</a></p>
+	@endif
 </article>
 @endforeach

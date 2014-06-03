@@ -31,6 +31,30 @@ class User extends SentryUser implements RemindableInterface {
 
 	protected $visible = array('id', 'created_at', 'activated', 'person');
 
+	public static function boot()
+	{
+		parent::boot();
+
+		User::creating(function($user) {
+			$user->key     = static::generateKey();
+		});
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
+	public static function generateKey()
+	{
+		$key = Str::random(5);
+
+		if(User::where('key', $key)->first()) {
+			return static::generateKey();
+		}
+
+		return $key;
+	}
+
 	/**
 	 * Get the e-mail address where password reminders are sent.
 	 *

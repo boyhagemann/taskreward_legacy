@@ -107,7 +107,7 @@
 		  <section class="col-lg-4">
 
 			  <div class="col-lg-4">
-				  <a href="{{ $invite->url }}" class="btn btn-primary btn-lg">Invite users</a>
+				  <a href="{{ $invite->tokenUrl }}" class="btn btn-primary btn-lg">Invite users</a>
 			  </div>
 
 		  </section>

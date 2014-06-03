@@ -34,7 +34,7 @@ return array(
 
 	'show' => array(
 		'link_title'    	 => 'Use this link',
-		'accept'     		=> 'Let\'s do this',
+		'login'     		=> 'Log in to view the link',
 	),
 
 );

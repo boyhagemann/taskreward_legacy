@@ -32,17 +32,6 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
 	}
 });
 
-Event::listen('api.task.index', function(QueryBuilder $qb) {
-    
-    if(!Input::get('user_id')) {     
-        return;
-    } 
-    
-    $qb->whereHas('tokens', function($qb) {
-        $qb->where('user_id', Input::get('user_id'));
-    });    
-});
-
 Event::listen('api.rewards.index', function(QueryBuilder $qb) {
 
 	if(!Input::get('user_id')) {
@@ -153,17 +142,8 @@ Event::listen('user.invite', function(User $user, $password) {
 
 });
 
-User::created(function(User $user) {
+Event::listen('token.redirect', function(User $user, Task $task, $token) {
 
-	Token::firstOrCreate(array(
-		'task_id' => 1, // Invite people
-		'user_id' => $user->id,
-	));
+	$task->uri = str_replace('%5Btoken%5D', $token, $task->uri);
 
-});
-
-Event::listen('token.redirect', function(Token $token) {
-    
-//    $token->task->setVisible(array('product_uri'));
-    $token->task->uri = str_replace('%5Btoken%5D', $token->key, $token->task->uri);
 });

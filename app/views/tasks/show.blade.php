@@ -5,12 +5,12 @@
 <h1>{{ $task->title }}</h1>
 <p>{{ $task->description }}</p>
 
-@if($token)
+@if($task->tokenUrl)
 
 <div class="col-lg-6">    
     <h2>{{ Lang::get('tasks.show.link_title') }}</h2>
     <div class="alert alert-info">
-        <h4><a href="{{ $token->url }}" target="_blank">{{ $token->url }}</a></h4>
+        <h4><a href="{{ $task->tokenUrl }}" target="_blank">{{ $task->tokenUrl }}</a></h4>
     </div>
     <p>
         With this link we can trace back the task when it's completed.
@@ -29,7 +29,7 @@
 
 @else
 <div>
-    <a href="{{ URL::route('tasks.accept', $task->id) }}" class="btn btn-lg btn-primary">{{ Lang::get('tasks.show.accept') }}</a>
+    <a href="{{ URL::route('user.login') }}" class="btn btn-lg btn-primary">{{ Lang::get('tasks.show.login') }}</a>
 </div>
 @endif
 

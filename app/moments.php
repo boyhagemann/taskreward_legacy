@@ -16,14 +16,13 @@ Task::created(function(Task $task) {
 
 });
 
-Event::listen('token.redirect', function(Token $token) {
+Event::listen('token.redirect', function(User $user, Task $task, $token) {
 
     Moment::create(array(
         'action_id' => 2,
-        'user_id'   => $token->user_id,
-        'task_id'   => $token->task_id,
-        'token_id'  => $token->id,
-        'params' 	=> array('key' => $token->key, 'url' => $token->url),
+        'user_id'   => $user->id,
+        'task_id'   => $task->id,
+        'params' 	=> array('key' => $token, 'url' => $task->tokenUrl),
     ));
     
 });

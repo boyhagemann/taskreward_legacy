@@ -14,9 +14,11 @@ class AlterUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
+			$table->string('key');
 			$table->integer('person_id')->nullable();
 			$table->integer('parent_user_id')->nullable();
-            
+
+			$table->unique('key');
 			$table->index('person_id');
 			$table->index('parent_user_id');
 		});

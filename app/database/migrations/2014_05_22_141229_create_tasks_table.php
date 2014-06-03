@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration {
 
 			$table->integer('provider_id');
 			$table->integer('task_type_id');
+			$table->string('key');
 			$table->string('uid');
 			$table->string('title');
 			$table->text('description');
@@ -27,6 +28,7 @@ class CreateTasksTable extends Migration {
 			$table->string('currency');
 
 			$table->unique(array('provider_id', 'uid'));
+			$table->unique('key');
 			$table->index('task_type_id');
 			$table->index('value');
 			$table->index('currency');

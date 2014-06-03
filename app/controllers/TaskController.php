@@ -45,16 +45,12 @@ class TaskController extends \BaseController {
 	 */
 	public function show(Task $task)
 	{
-        $token = Sentry::check() 
-            ? Token::where('task_id', $task->id)->where('user_id', Sentry::getUser()->id)->first()
-            : null;
-        
         $stream = API::get('api/stream', array(
             'task_id' => $task->id,
             'user_id' => Sentry::check() ? Sentry::getUser()->id : null,
         ));
         
-		return View::make('tasks.show', compact('task', 'token', 'stream'));
+		return View::make('tasks.show', compact('task', 'stream'));
 	}
 
 	/**
