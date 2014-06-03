@@ -19,40 +19,30 @@
   </head>
   <body>
 
-    @include('partials.navbar')
+    @include('partials.navbar', ['form' => false])
 
     <div class="jumbotron">
         <div class="container">
             <div class="col-lg-12">
-                <h1>Hello, world!</h1>
-                <p>...</p>
-                <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>                
+
+				<section class="row">
+
+						<form class="col-lg-offset-3" action="{{ URL::route('tasks.index') }}" method="GET" role="search">
+							<div class="form-group col-xs-6">
+								<input type="text" name="q" class="form-control input-lg" placeholder="{{ Lang::get('navigation.navbar.search.placeholder') }}" value="{{{ Input::get('q') }}}">
+							</div>
+							<button type="submit" class="btn btn-primary input-lg">{{ Lang::get('navigation.navbar.search.label') }}</button>
+						</form>
+
+				</section>
+
             </div>
         </div>
     </div>
       
       <div class="container">
 
-        @include('partials.messages')
-          
-          <section class="col-lg-6">
-             
-            <h2>{{ Lang::get('home.tasks.title') }}</h2>
-            @include('partials.tasks.list')
-              
-          </section>
-          <section class="col-lg-6">
-              
-            <h2>{{ Lang::get('home.stream.title') }}</h2>
-            @include('partials.stream.list')
-
-          </section>
-          
       </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

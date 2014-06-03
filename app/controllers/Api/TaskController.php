@@ -16,7 +16,7 @@ class TaskController extends \BaseController {
         Event::fire('api.index', $q);
         Event::fire('api.task.index', $q);
 
-		return $q->get();
+		return $q->paginate();
 	}
 
 

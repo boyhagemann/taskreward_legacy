@@ -18,8 +18,8 @@
     <![endif]-->
   </head>
   <body>
-      
-    @include('partials.navbar')
+
+	  @include('partials.navbar', ['form' => true])
 
       <div class="container">
 		  <!--Div that will hold the pie chart-->

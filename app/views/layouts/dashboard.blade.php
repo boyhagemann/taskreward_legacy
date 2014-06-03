@@ -71,7 +71,7 @@
   </head>
   <body>
 
-    @include('partials.navbar')
+	  @include('partials.navbar', ['form' => true])
 
     <div class="jumbotron">
         <div class="container">
