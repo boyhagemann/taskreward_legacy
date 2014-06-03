@@ -20,6 +20,18 @@ return array(
 
 	),
 
+	'index' => array(
+
+		'heading' 		=> 'All tasks',
+
+	),
+
+	'search' => array(
+
+		'heading' 		=> ':count task found|:count tasks found',
+
+	),
+
 	'show' => array(
 		'link_title'    	 => 'Use this link',
 		'accept'     		=> 'Let\'s do this',

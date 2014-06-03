@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>{{ Lang::get('tasks.index.heading') }}</h1>
+<h1>{{ Lang::choice('tasks.search.heading', $tasks->getTotal()) }}</h1>
 
 {{ $tasks->links() }}
 

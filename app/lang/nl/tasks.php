@@ -20,6 +20,18 @@ return array(
 
 	),
 
+	'index' => array(
+
+		'heading' 		=> 'Alle opdrachten',
+
+	),
+
+	'search' => array(
+
+		'heading' 		=> ':count opdracht gevonden|:count opdrachten gevonden',
+
+	),
+
 	'show' => array(
 		'link_title'     => 'Gebruik deze link',
 		'accept'  		 => 'OK, ik doe het!',

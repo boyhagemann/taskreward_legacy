@@ -34,7 +34,7 @@ class TaskController extends \BaseController {
 			'page'	=> Input::get('page'),
 		));
 
-		return View::make('tasks.index', compact('tasks'));
+		return View::make('tasks.search', compact('tasks', 'q'));
 	}
 
 	/**
