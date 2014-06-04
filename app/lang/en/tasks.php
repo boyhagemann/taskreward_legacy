@@ -13,10 +13,16 @@ return array(
 	|
 	*/
 
+	'actions' => array(
+
+		'sell' 	=> 'Sell this product',
+		'recruit' 	=> 'Recruit people',
+
+	),
+
 	'list' => array(
 
-		'task' 		=> 'Your task:',
-		'reward' 	=> 'Reward:',
+		'action' 	=> ':task and earn <em>:reward</em>',
 
 	),
 

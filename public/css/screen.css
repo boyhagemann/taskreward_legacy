@@ -2,6 +2,12 @@ body {
     padding-top: 50px;
 }
 
+.btn-success em {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+
 .layout-default {
 	padding-top: 80px;
 }

@@ -11,7 +11,7 @@ class TaskTableSeeder extends Seeder {
 	{        
 		Task::create(array(
 			'provider_id' => 1,
-			'task_type_id' => 1,
+			'action' => Task::ACTION_RECRUIT,
 			'uid' => 'uid1',
 			'title' => 'Invite people',
 			'description' => 'Get a nice cut of their sales',
@@ -22,7 +22,7 @@ class TaskTableSeeder extends Seeder {
         
 		Task::create(array(
 			'provider_id' => 2,
-			'task_type_id' => 2,
+			'action' => Task::ACTION_SELL,
 			'uid' => 'uid1',
 			'title' => 'Samsung Curved UHD TV SMART 65"',
 			'description' => 'TV was nog nooit zo meeslepend als met deze gebogen TV. Het bijzondere beeldscherm geeft diepte aan tweedimensionale beelden.',
@@ -33,7 +33,7 @@ class TaskTableSeeder extends Seeder {
         
 		Task::create(array(
 			'provider_id' => 3,
-			'task_type_id' => 2,
+			'action' => Task::ACTION_SELL,
 			'uid' => 'uid2',
 			'title' => 'Bose BMT3',
 			'description' => 'Nice Audio thing',

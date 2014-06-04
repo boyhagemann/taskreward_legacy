@@ -14,7 +14,6 @@ class TaskController extends \BaseController {
 		}
 
 		$tasks = API::get('api/tasks', array(
-			'with' 	=> 'type',
 			'page'	=> Input::get('page'),
 		));
 
@@ -29,7 +28,6 @@ class TaskController extends \BaseController {
 	public function search($q)
 	{
 		$tasks = API::get('api/tasks', array(
-			'with' 	=> 'type',
 			'q' 	=> $q,
 			'page'	=> Input::get('page'),
 		));

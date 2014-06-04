@@ -4,9 +4,11 @@
  * Class Task
  *
  * @property Provider $provider
- * @property TaskType $type
  */
 class Task extends Eloquent {
+
+	const ACTION_SELL 		= 'sell';
+	const ACTION_RECRUIT 	= 'recruit';
 
 	/**
 	 * The database table used by the model.
@@ -15,11 +17,11 @@ class Task extends Eloquent {
 	 */
 	protected $table = 'tasks';
 
-	protected $visible = array('id', 'created_at', 'title', 'description', 'uri', 'image', 'type', 'provider');
+	protected $visible = array('id', 'created_at', 'title', 'description', 'uri', 'image', 'action', 'provider');
 
-	protected $fillable = array('uid', 'title', 'description', 'uri', 'image', 'value', 'currency', 'provider_id', 'task_type_id');
+	protected $fillable = array('uid', 'title', 'action', 'description', 'uri', 'image', 'value', 'currency', 'provider_id');
 
-	protected $appends = array('reward', 'token', 'tokenUrl', 'imageSmall');
+	protected $appends = array('task', 'reward', 'token', 'tokenUrl', 'imageSmall');
 
 	public static function boot()
 	{
@@ -54,11 +56,11 @@ class Task extends Eloquent {
 	}
 
 	/**
-	 * @return mixed
+	 * @return string
 	 */
-	public function type()
+	public function getTaskAttribute()
 	{
-		return $this->belongsTo('TaskType', 'task_type_id');
+		return Lang::get('tasks.actions.' . $this->action);
 	}
 
 	/**
@@ -68,7 +70,6 @@ class Task extends Eloquent {
 	{
 		return $this->value . ' ' . $this->currency;
 	}
-
 
 	/**
 	 * @return string|null

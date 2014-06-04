@@ -13,7 +13,7 @@
 		<h1>{{ $task->title }}</h1>
 		<p>{{ $task->description }}</p>
 
-		<h4><span class="label label-success">{{ Lang::get('tasks.show.badge') }}</span> {{ Lang::get('tasks.show.task', ['task' => $task->type->title, 'reward' => $task->reward]) }}</h4>
+		<h4>{{ Lang::get('tasks.show.task', ['task' => $task->task, 'reward' => $task->reward]) }}</h4>
 
 	</div>
 

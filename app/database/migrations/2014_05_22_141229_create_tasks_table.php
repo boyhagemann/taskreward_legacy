@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration {
 			$table->timestamps();
 
 			$table->integer('provider_id');
-			$table->integer('task_type_id');
+			$table->enum('action', array('sell', 'recruit'));
 			$table->string('key');
 			$table->string('uid');
 			$table->string('title');
@@ -30,7 +30,7 @@ class CreateTasksTable extends Migration {
 
 			$table->unique(array('provider_id', 'uid'));
 			$table->unique('key');
-			$table->index('task_type_id');
+			$table->index('action');
 			$table->index('value');
 			$table->index('currency');
 

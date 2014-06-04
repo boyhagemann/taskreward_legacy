@@ -13,10 +13,16 @@ return array(
 	|
 	*/
 
+	'actions' => array(
+
+		'sell' 	=> 'Verkoop dit product',
+		'recruit' 	=> 'Werf mensen',
+
+	),
+
 	'list' => array(
 
-		'task' 		=> 'Jouw taak:',
-		'reward' 	=> 'Beloning:',
+		'action' 	=> '<em>:task</em> en verdien <em>:reward</em>',
 
 	),
 
