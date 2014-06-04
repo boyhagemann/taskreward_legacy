@@ -123,6 +123,7 @@ return array(
 		'Teepluss\Api\ApiServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
         'AdamWathan\BootForms\BootFormsServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 	),
 
 	/*
@@ -191,6 +192,7 @@ return array(
 		'API' 			  => 'Teepluss\Api\Facades\API',
         'Sentry'          => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
         'BootForm'        => 'AdamWathan\BootForms\Facades\BootForm',
+		'Image' 		  => 'Intervention\Image\Facades\Image',
 	),
 
 );

@@ -9,7 +9,8 @@
 		"teepluss/api": "1.*",
         "cartalyst/sentry": "2.*",
         "adamwathan/bootforms": "v0.2",
-        "codeception/codeception": "1.*"
+        "codeception/codeception": "1.*",
+		"intervention/imagecache": "2.*"
 	},
 	"autoload": {
 		"classmap": [

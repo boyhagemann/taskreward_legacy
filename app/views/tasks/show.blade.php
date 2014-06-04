@@ -5,7 +5,7 @@
 <article class="row task">
 
 	<div class="col-lg-2 task__image_container">
-		<img class="media-object" src="holder.js/120x120" alt="...">
+		<img class="media-object" src="{{ $task->image  }}" alt="...">
 	</div>
 
 	<div class="col-lg-10">

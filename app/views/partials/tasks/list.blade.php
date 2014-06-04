@@ -2,8 +2,9 @@
 
 	@foreach($tasks as $task)
 	<li class="media task-list__item">
+		{{ $task->image }}
 		<a class="pull-left" href="#">
-			<img class="media-object" src="holder.js/80x80" alt="...">
+			<img class="media-object" src="{{ $task->imageSmall }}" alt="...">
 		</a>
 
 		<article class="media-body">

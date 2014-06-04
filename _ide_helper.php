@@ -730,12 +730,12 @@ namespace {
 		 * @param string               $abstract
 		 * @param Closure|string|null  $concrete
 		 * @param bool                 $shared
-		 * @return bool
+		 * @return void
 		 * @static 
 		 */
 		 public static function bindIf($abstract, $concrete = null, $shared = false){
 			//Method inherited from \Illuminate\Container\Container
-			return \Illuminate\Foundation\Application::bindIf($abstract, $concrete, $shared);
+			 \Illuminate\Foundation\Application::bindIf($abstract, $concrete, $shared);
 		 }
 
 		/**
@@ -4901,13 +4901,13 @@ namespace {
 		/**
 		 * Retrieve the "count" result of the query.
 		 *
-		 * @param string  $column
+		 * @param string  $columns
 		 * @return int
 		 * @static 
 		 */
-		 public static function count($column = '*'){
+		 public static function count($columns = '*'){
 			//Method inherited from \Illuminate\Database\Query\Builder
-			return \Illuminate\Database\Query\Builder::count($column);
+			return \Illuminate\Database\Query\Builder::count($columns);
 		 }
 
 		/**
@@ -5835,12 +5835,13 @@ namespace {
 		 * @param string  $name
 		 * @param string  $selected
 		 * @param array   $options
+		 * @param string  $format
 		 * @return string
 		 * @static 
 		 */
-		 public static function selectMonth($name, $selected = null, $options = array()){
+		 public static function selectMonth($name, $selected = null, $options = array(), $format = '%B'){
 			//Method inherited from \Illuminate\Html\FormBuilder
-			return \Illuminate\Html\FormBuilder::selectMonth($name, $selected, $options);
+			return \Illuminate\Html\FormBuilder::selectMonth($name, $selected, $options, $format);
 		 }
 
 		/**
@@ -10746,6 +10747,18 @@ namespace {
 		 }
 
 		/**
+		 * Alias for the "currentRouteNamed" method.
+		 *
+		 * @param dynamic  string
+		 * @return bool
+		 * @static 
+		 */
+		 public static function is(){
+			//Method inherited from \Illuminate\Routing\Router
+			return \Illuminate\Routing\Router::is();
+		 }
+
+		/**
 		 * Determine if the current route matches a given name.
 		 *
 		 * @param string  $name
@@ -10766,6 +10779,18 @@ namespace {
 		 public static function currentRouteAction(){
 			//Method inherited from \Illuminate\Routing\Router
 			return \Illuminate\Routing\Router::currentRouteAction();
+		 }
+
+		/**
+		 * Alias for the "currentRouteUses" method.
+		 *
+		 * @param dynamic  string
+		 * @return bool
+		 * @static 
+		 */
+		 public static function isAction(){
+			//Method inherited from \Illuminate\Routing\Router
+			return \Illuminate\Routing\Router::isAction();
 		 }
 
 		/**
