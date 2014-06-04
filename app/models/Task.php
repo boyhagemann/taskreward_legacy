@@ -102,7 +102,7 @@ class Task extends Eloquent {
 	 */
 	public function thumb($width, $height)
 	{
-		return URL::route('image.resize', [$this->attributes['image'], $width, $height]);
+		return URL::route('image.thumb', [$this->attributes['image'], $width, $height]);
 	}
 
 	public function getImageAttribute()

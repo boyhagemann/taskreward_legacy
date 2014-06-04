@@ -24,7 +24,9 @@ body {
 }
 
 
-
+.task-list__image-container {
+	width: 80px;
+}
 .task-list__title {
 	font-size: 1.4em;
 }

@@ -37,10 +37,13 @@ Route::get('r/{token}', array(
 
 
 
-Route::get('image/resize/{path}/{width}/{height}', array(
-	'as' => 'image.resize',
+Route::get('image/crop/{path}/{width}/{height}', array(
+	'as' => 'image.thumb',
 	function($path, $width, $height) {
-		return Image::make($path)->resize($width, $height)->response('png', 70);
+		return Image::make($path)->resize($width, $height, function ($constraint) {
+			$constraint->aspectRatio();
+			$constraint->upsize();
+		})->response('png', 70);
 	}
 ))->where(array('path' => '.*', 'width' => '[0-9]+', 'height' => '[0-9]+' ));
 
