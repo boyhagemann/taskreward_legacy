@@ -42,8 +42,19 @@ body {
 .task-list {
 	padding-top: 20px;
 }
+.task-list__body {
+	position: relative;
+}
+.task-list-item__link {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
 .task-list__item {
 	margin-bottom: 40px;
+}
+.task-list-item__link {
+	margin-bottom: 5px;
 }
 .task-list .task-list__dt {
 	text-align: left;
@@ -51,4 +62,12 @@ body {
 }
 .task-list .task-list__dd {
 	margin-left: 100px;
+}
+
+
+.task__action-container {
+	padding: 10px;
+}
+.task__action-link {
+	font-size: 1.1em;
 }
