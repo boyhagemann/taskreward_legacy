@@ -10,7 +10,7 @@
 		<article class="media-body">
 
 			<h1 class="media-heading task-list__title"><a href="{{ URL::route('tasks.show', $task->id) }}" class="task-list__title-link">{{ $task->title }}</a></h1>
-			<p class="task-list-item__description">{{ $task->description }}</p>
+			<p class="task-list-item__teaser">{{ $task->teaser }}</p>
 
 			<a href="{{ URL::route('tasks.show', $task->id) }}" class="btn btn-xs btn-success">{{ Lang::get('tasks.list.action', ['task' => $task->task, 'reward' => $task->reward]) }}</a></dd>
 

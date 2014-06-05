@@ -44,6 +44,12 @@ class TaskController extends \BaseController {
 
 		try {
 
+			$task = Task::where('uid', Input::get('uid'))->first();
+
+			if($task) {
+				return $this->update($task);
+			}
+
 			$task = new Task;
 			$task->fill(Input::all());
 			$task->save();
@@ -105,12 +111,34 @@ class TaskController extends \BaseController {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param  Task $task
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Task $task)
 	{
-		//
+		if(Input::get('tasks')) {
+			return $this->batch();
+		}
+
+		try {
+
+			$task->fill(Input::all());
+			$task->save();
+
+			return array(
+				'success' => true,
+				'messages' => array('Task updated'),
+			);
+
+		}
+		catch(Exception $e) {
+
+			return array(
+				'success' => false,
+				'messages' => array($e->getMessage()),
+			);
+
+		}
 	}
 
 

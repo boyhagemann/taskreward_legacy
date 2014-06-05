@@ -22,6 +22,7 @@ class CreateTasksTable extends Migration {
 			$table->string('key');
 			$table->string('uid');
 			$table->string('title');
+			$table->text('teaser');
 			$table->text('description');
 			$table->string('uri');
 			$table->string('image');
