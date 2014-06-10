@@ -13108,5 +13108,59 @@ namespace {
 		 }
 
 	}
+	class Image extends \Intervention\Image\Facades\Image{
+		/**
+		 * Creates new instance of Image Manager
+		 *
+		 * @param Illuminate\Config\Repository $config
+		 * @static 
+		 */
+		 public static function __construct($config = null){
+			//Method inherited from \Intervention\Image\ImageManager
+			 \Intervention\Image\ImageManager::__construct($config);
+		 }
+
+		/**
+		 * Initiates an Image instance from different input types
+		 *
+		 * @param mixed $data
+		 * @return Intervention\Image\Image
+		 * @static 
+		 */
+		 public static function make($data){
+			//Method inherited from \Intervention\Image\ImageManager
+			return \Intervention\Image\ImageManager::make($data);
+		 }
+
+		/**
+		 * Creates an empty image canvas
+		 *
+		 * @param integer $width
+		 * @param integer $height
+		 * @param mixed $background
+		 * @return Intervention\Image\Image
+		 * @static 
+		 */
+		 public static function canvas($width, $height, $background = null){
+			//Method inherited from \Intervention\Image\ImageManager
+			return \Intervention\Image\ImageManager::canvas($width, $height, $background);
+		 }
+
+		/**
+		 * Create new cached image and run callback
+		 * (requires additional package intervention/imagecache)
+		 *
+		 * @param Closure $callback
+		 * @param integer $lifetime
+		 * @param boolean $returnObj
+		 * @return Image
+		 * @static 
+		 */
+		 public static function cache($callback, $lifetime = null, $returnObj = false){
+			//Method inherited from \Intervention\Image\ImageManager
+			return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
+		 }
+
+	}
 }
 

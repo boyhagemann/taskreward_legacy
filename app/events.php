@@ -7,17 +7,30 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
     
     if(!Input::get('q')) {
         return;
-    } 
-    
-    $parts = explode(' ', Input::get('q'));
-    
-    foreach($parts as $q) {
-        
-        $qb->where(function($qb) use($q) {
-            $qb->orWhere('title', 'LIKE', '%' . $q .'%');
-            $qb->orWhere('description', 'LIKE', '%' . $q .'%');
-        });        
     }
+
+
+	$client = new Elasticsearch\Client();
+	$response = $client->search(array(
+		'index' => 'tasks',
+		'type' => 'task',
+		'body' => array(
+			'query' => array(
+				'fuzzy_like_this' => array(
+					'fields' => array('title', 'description'),
+					'like_text' => Input::get('q'),
+				)
+			)
+		)
+	));
+
+	$ids = array_fetch($response['hits']['hits'], '_id');
+
+	$qb->whereIn('id', $ids);
+
+	$order = implode(',', $ids);
+	$qb->orderByRaw(DB::raw("FIELD(id, $order)"));
+
 });
 
 Event::listen('api.task.index', function(QueryBuilder $qb) {
@@ -145,5 +158,22 @@ Event::listen('user.invite', function(User $user, $password) {
 Event::listen('token.redirect', function(User $user, Task $task, $token) {
 
 	$task->uri = str_replace('%5Btoken%5D', $token, $task->uri);
+
+});
+
+
+Task::saved(function(Task $task) {
+
+	$client = new Elasticsearch\Client();
+
+	$client->index(array(
+		'index' => 'tasks',
+		'type' => 'task',
+		'id' => $task->id,
+		'body' => array(
+			'title' => $task->title,
+			'description' => $task->description,
+		)
+	));
 
 });
