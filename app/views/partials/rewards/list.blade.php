@@ -2,8 +2,9 @@
 
 	@foreach($rewards as $reward)
 	<article>
-		<h3>{{ $reward->task->product_title }}</h3>
-		<p>{{ $reward->value }} {{ $reward->currency }}</p>
+		<time>{{ $reward->created_at }}</time>
+		<h4><a href="{{ URL::route('tasks.show', $reward->task->id) }}">{{ $reward->task->title }}</a></h4>
+		<p><span class="label label-success">{{ $reward->value }} {{ $reward->currency }}</span></p>
 	</article>
 	@endforeach
 

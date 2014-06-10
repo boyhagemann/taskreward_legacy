@@ -17,15 +17,33 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
 		'type' => 'task',
 		'body' => array(
 			'query' => array(
-				'fuzzy_like_this' => array(
-					'fields' => array('title', 'description'),
-					'like_text' => Input::get('q'),
-				)
+				'bool' => array(
+					'should' => array(
+						array(
+							'fuzzy_like_this_field' => array(
+								'title' => array(
+									'like_text' => Input::get('q'),
+									'boost' => 3,
+								)
+							),
+							'fuzzy_like_this_field' => array(
+								'description' => array(
+									'like_text' => Input::get('q'),
+									'boost' => 1,
+								)
+							)
+						)
+					),
+				),
 			)
 		)
 	));
 
 	$ids = array_fetch($response['hits']['hits'], '_id');
+
+	if(!$ids) {
+		$ids = array(-1); // Fake ID
+	}
 
 	$qb->whereIn('id', $ids);
 
@@ -167,10 +185,10 @@ Event::listen('token.redirect', function(User $user, Task $task, $token) {
 });
 
 
+
 Task::saved(function(Task $task) {
 
 	$client = new Elasticsearch\Client();
-
 	$client->index(array(
 		'index' => 'tasks',
 		'type' => 'task',
@@ -179,6 +197,17 @@ Task::saved(function(Task $task) {
 			'title' => $task->title,
 			'description' => $task->description,
 		)
+	));
+
+});
+
+Task::deleting(function(Task $task) {
+
+	$client = new Elasticsearch\Client();
+	$client->delete(array(
+		'index' => 'tasks',
+		'type' => 'task',
+		'id' => $task->id,
 	));
 
 });

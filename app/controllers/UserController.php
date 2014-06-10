@@ -78,11 +78,10 @@ class UserController extends \BaseController {
 	 */
 	public function dashboard()
 	{
-        $tasks 		= API::get('api/tasks', array('user_id' => Sentry::getUser()->id));
         $rewards 	= API::get('api/rewards', array('user_id' => Sentry::getUser()->id, 'with' => 'task'));
 		$invite 	= Task::find(1);
 
-        return View::make('layouts.dashboard', compact('tasks', 'rewards', 'invite'));
+        return View::make('layouts.dashboard', compact('rewards', 'invite'));
 	}
     
 	/**

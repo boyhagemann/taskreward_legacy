@@ -15,17 +15,22 @@ return array(
 
 	'dashboard' => array(
 
-		'tasks' => array(
+		'charts' => array(
 
-			'title' => 'Mijn opdrachten',
-			'empty' => 'Je hebt nog geen opdrachten aangenomen',
+			'title' => 'Mijn opbrengsten',
 
 		),
 
 		'rewards' => array(
 
-			'title' => 'Mijn opbrengsten',
+			'title' => 'Recente opbrengsten',
 			'empty' => 'Je hebt nog geen opgebrengsten',
+
+		),
+
+		'invite' => array(
+
+			'button' => 'Vrienden uitnodigen',
 
 		),
 	),

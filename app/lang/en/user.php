@@ -15,17 +15,22 @@ return array(
 
 	'dashboard' => array(
 
-		'tasks' => array(
+		'charts' => array(
 
-			'title' => 'My tasks',
-			'empty' => 'You have no tasks yet',
+			'title' => 'My rewards',
 
 		),
 
 		'rewards' => array(
 
-			'title' => 'My rewards',
+			'title' => 'Recent rewards',
 			'empty' => 'You have no rewards yet',
+
+		),
+
+		'invite' => array(
+
+			'button' => 'Invite friends',
 
 		),
 	),

@@ -76,7 +76,7 @@
     <div class="jumbotron">
         <div class="container">
             <div class="col-lg-12">
-				<h2>{{ Lang::get('user.dashboard.rewards.title') }}</h2>
+				<h2>{{ Lang::get('user.dashboard.charts.title') }}</h2>
 				<div id="chart_rewards"></div>
             </div>
         </div>
@@ -87,15 +87,6 @@
         @include('partials.messages')
 
 		  <section class="col-lg-6">
-			  <h2>{{ Lang::get('user.dashboard.tasks.title') }}</h2>
-			  @if($tasks)
-			  @include('partials.tasks.list')
-			  @else
-			  {{ Lang::get('user.dashboard.tasks.empty') }}
-			  @endif
-		  </section>
-
-		  <section class="col-lg-6">
 			  <h2>{{ Lang::get('user.dashboard.rewards.title') }}</h2>
 			  @if($rewards)
 			  @include('partials.rewards.list')
@@ -104,10 +95,10 @@
 			  @endif
 		  </section>
 
-		  <section class="col-lg-4">
+		  <section class="col-lg-6">
 
 			  <div class="col-lg-4">
-				  <a href="{{ $invite->tokenUrl }}" class="btn btn-primary btn-lg">Invite users</a>
+				  <a href="{{ $invite->tokenUrl }}" class="btn btn-primary btn-lg">{{ Lang::get('user.dashboard.invite.button') }}</a>
 			  </div>
 
 		  </section>
