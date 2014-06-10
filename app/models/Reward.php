@@ -16,9 +16,17 @@ class Reward extends Eloquent {
 	 */
 	protected $table = 'rewards';
     
-    protected $fillable = array('user_id', 'task_id', 'value', 'currency');
+    protected $fillable = array('uid', 'user_id', 'task_id', 'value', 'currency');
 
 	protected $visible = array('id', 'created_at', 'value', 'currency', 'task', 'user', 'stream');
+
+	/**
+	 * @return Illuminate\Database\Query\Builder
+	 */
+	public function newBaseQueryBuilder()
+	{
+		return parent::newBaseQueryBuilder()->orderBy('id', 'DESC');
+	}
 
     /**
 	 * @return Token

@@ -2,14 +2,19 @@
 
 class Token
 {
+	/**
+	 * @param User $user
+	 * @param Task $task
+	 * @return string
+	 */
 	public static function build(User $user, Task $task)
 	{
 		return $user->key . $task->key;
 	}
 
 	/**
-	 * @param $token
-	 * @return mixed
+	 * @param string $token
+	 * @return User
 	 */
 	public static function getUser($token)
 	{
@@ -17,6 +22,10 @@ class Token
 		return User::where('key', $key)->first();
 	}
 
+	/**
+	 * @param string $token
+	 * @return Task
+	 */
 	public static function getTask($token)
 	{
 		$key = substr($token, 5, 10);

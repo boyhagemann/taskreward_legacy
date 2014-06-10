@@ -158,7 +158,11 @@ Event::listen('user.invite', function(User $user, $password) {
 
 Event::listen('token.redirect', function(User $user, Task $task, $token) {
 
-	$task->uri = str_replace('%5Btoken%5D', $token, $task->uri);
+	if(strpos($task->uri, '[token]') === false) {
+		return App::abort(404);
+	}
+
+	$task->uri = str_replace('[token]', $token, $task->uri);
 
 });
 

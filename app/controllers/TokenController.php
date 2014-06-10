@@ -16,6 +16,7 @@ class TokenController extends \BaseController
         Event::fire('token.redirect', array($user, $task, $token));
 
         $url = $task->uri;
+
 		return Redirect::to($url);
 	}
 

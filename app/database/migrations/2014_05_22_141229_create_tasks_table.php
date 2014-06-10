@@ -24,7 +24,7 @@ class CreateTasksTable extends Migration {
 			$table->string('title');
 			$table->text('teaser');
 			$table->text('description');
-			$table->string('uri');
+			$table->text('uri');
 			$table->string('image');
 			$table->float('value');
 			$table->string('currency');

@@ -1,6 +1,6 @@
 <?php namespace Api;
 
-use Reward, Event;
+use Reward, Event, Input, Token;
 
 class RewardController extends \BaseController {
 
@@ -23,75 +23,52 @@ class RewardController extends \BaseController {
 		return $result ? $result : $collection;
 	}
 
-
 	/**
-	 * Show the form for creating a new resource.
+	 * Update the specified resource in storage.
 	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
+	 * @param  Token $token
 	 * @return Response
 	 */
 	public function store()
 	{
-		//
+		if(Input::get('batch')) {
+			return $this->batch();
+		}
+
+		$token = Input::get('token');
+
+		$user = Token::getUser($token);
+		$task = Token::getTask($token);
+
+		if(Reward::where('uid', Input::get('uid'))->first()) {
+			return array(
+				'success' => false,
+				'messages' => array('Reward already stored')
+			);
+		}
+
+		$reward = new Reward;
+		$reward->fill(Input::all());
+		$reward->user_id = $user->id;
+		$reward->task_id = $task->id;
+		$reward->save();
+
+		return array(
+			'success' => true,
+			'messages' => array('New reward stored')
+		);
 	}
 
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
+	public function batch()
 	{
-		//
+		$result = array();
+
+		foreach(Input::get('batch') as $data) {
+			Input::replace($data);
+			$result[] = $this->store();
+		}
+
+		return $result;
 	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 
 }

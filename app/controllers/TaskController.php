@@ -31,23 +31,4 @@ class TaskController extends \BaseController {
 		return View::make('tasks.show', compact('task', 'stream'));
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  Task $task
-	 * @return Response
-	 */
-	public function accept(Task $task)
-	{
-        $user = Sentry::getUser();
-        $token = Token::firstOrCreate(array(
-            'task_id' => $task->id,
-            'user_id' => $user->id,
-        ));
-                
-        Event::fire('task.accepted', array($token, $user));
-        
-		return Redirect::route('tasks.show', $task->id);
-	}
-
 }

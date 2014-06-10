@@ -98,3 +98,6 @@ Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
 
 
 
+Route::get('about', function() {
+	return View::make('pages.nl.about');
+});

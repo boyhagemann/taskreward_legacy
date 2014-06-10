@@ -41,7 +41,7 @@ return array(
 	'show' => array(
 		'link_title'     => 'Gebruik deze link',
 		'login'  		 => 'Login om de link te zien',
-		'task'  		 => ':task om :reward te verdienen',
+		'task'  		 => ':task en verdien :reward',
 		'badge'  		 => 'Jouw opdracht',
 	),
 
