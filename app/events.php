@@ -12,6 +12,7 @@ Event::listen('api.task.index', function(QueryBuilder $qb) {
 
 	$client = new Elasticsearch\Client();
 	$response = $client->search(array(
+		'size' => 1000,
 		'index' => 'tasks',
 		'type' => 'task',
 		'body' => array(

@@ -45,6 +45,9 @@ body {
 .task-list__body {
 	position: relative;
 }
+.task-list-item__teaser {
+	width: 100%;
+}
 .task-list-item__link {
 	position: absolute;
 	right: 0;

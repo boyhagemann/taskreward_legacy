@@ -24,11 +24,6 @@ Route::resource('tasks', 'TaskController');
 Route::resource('rewards', 'RewardController');
 Route::resource('stream', 'StreamController');
 
-Route::get('tasks/search/{q}', array(
-	'uses' => 'TaskController@search',
-	'as' => 'tasks.search',
-));
-
 Route::get('r/{token}', array(
     'uses' => 'TokenController@redirect',
     'as' => 'token.redirect',

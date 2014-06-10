@@ -16,7 +16,7 @@ class TaskController extends \BaseController {
         Event::fire('api.index', $q);
         Event::fire('api.task.index', $q);
 
-		return $q->paginate(Input::get('limit') ?: 10);
+		return $q->paginate(Input::get('limit') ?: 10)->appends(Input::except('page'));
 	}
 
 
