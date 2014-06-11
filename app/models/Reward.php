@@ -58,8 +58,11 @@ class Reward extends Eloquent {
 	 */
 	public static function bindToPayment(Payment $payment)
 	{
-		DB::table('rewards')->whereNull('payment_id')->update([
-			'payment_id' => $payment->id
+		DB::table('rewards')
+			->where('user_id', $payment->user_id)
+			->whereNull('payment_id')
+			->update([
+			'payment_id' => $payment->id,
 		]);
 	}
 }

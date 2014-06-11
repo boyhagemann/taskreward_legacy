@@ -45,11 +45,12 @@ class Payment extends Eloquent {
 	}
 
 	/**
-	 * @return Payment|null
+	 * @param User $user
+	 * @return static
 	 */
-	public static function getPaymentRequest()
+	public static function getPaymentRequest(User $user)
 	{
-		$q = Reward::where('user_id', Sentry::getUser()->id)->whereNull('payment_id');
+		$q = Reward::where('user_id', $user->id)->whereNull('payment_id');
 
 		$value = $q->sum('value');
 
@@ -59,7 +60,7 @@ class Payment extends Eloquent {
 
 		$payment = new static();
 		$payment->value 	= $value;
-		$payment->user_id 	= Sentry::getUser()->id;
+		$payment->user_id 	= $user->id;
 		$payment->currency 	= 'EUR';
 
 		return $payment;

@@ -94,14 +94,24 @@ Route::group(array('before' => 'auth', ), function() {
 
 
 
+Route::group(array('prefix' => 'api/', 'namespace' => 'Api'), function() {
 
-Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
 	Route::resource('tasks', 'TaskController');
 	Route::resource('rewards', 'RewardController');
 	Route::resource('payments', 'PaymentController');
 	Route::resource('stream', 'StreamController');
-	Route::resource('tokens', 'TokenController');
 });
+
+Route::group(array('prefix' => 'api/my', 'namespace' => 'Api', 'before' => 'auth|my'), function() {
+
+	Route::resource('tasks', 'TaskController');
+	Route::resource('rewards', 'RewardController');
+	Route::resource('payments', 'PaymentController');
+	Route::resource('stream', 'StreamController');
+});
+
+
+
 
 
 

@@ -34,7 +34,8 @@ class PaymentController extends \BaseController {
 	 */
 	public function request()
 	{
-		$payment = Payment::getPaymentRequest();
+		// Get a payment if the current user has enough rewards to request one.
+		$payment = Payment::getPaymentRequest(Sentry::getUser());
 
 		if(!$payment) {
 			return Redirect::route('user.dashboard')->withError(Lang::get('payments.request.invalid'));
@@ -42,6 +43,7 @@ class PaymentController extends \BaseController {
 
 		$payment->save();
 
+		// Bind all open reward from the current user to the payment
 		Reward::bindToPayment($payment);
 
 		return Redirect::route('payments.show', $payment->id)->withSuccess(Lang::get('payments.request.created'));

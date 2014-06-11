@@ -46,6 +46,10 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('my', function() {
+	Input::merge(['user_id' => Sentry::getUser()->id]);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
