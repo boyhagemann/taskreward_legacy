@@ -12,7 +12,7 @@
 			<h1 class="media-heading task-list__title"><a href="{{ URL::route('tasks.show', $task->id) }}" class="task-list__title-link">{{ $task->title }}</a></h1>
 
 			@if($task->tokenUrl)
-			<a href="{{ $task->tokenUrl }}" class="task-list-item__link">{{ $task->tokenUrl }}</a>
+			<a href="{{ $task->tokenUrl }}" class="task-list-item__link" target="_blank">{{ $task->tokenUrl }}</a>
 			@endif
 
 			<p class="task-list-item__teaser pull-left">{{ $task->teaser }}</p>

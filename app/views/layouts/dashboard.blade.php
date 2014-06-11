@@ -86,20 +86,25 @@
 
         @include('partials.messages')
 
-		  <section class="col-lg-6">
+		  @if($paymentRequest)
+		  <div class="col-lg-12">
+			  <div class="alert alert-info">{{ Lang::get('user.dashboard.payments.alert', ['url' => URL::route('payments.request'), 'value' => $paymentRequest->value, 'currency' => $paymentRequest->currency]) }}</div>
+		  </div>
+		  @endif
+
+		  <section class="col-lg-5">
 			  <h2>{{ Lang::get('user.dashboard.rewards.title') }}</h2>
-			  @if($rewards)
 			  @include('partials.rewards.list')
-			  @else
-			  {{ Lang::get('user.dashboard.rewards.empty') }}
-			  @endif
 		  </section>
 
-		  <section class="col-lg-6">
+		  <section class="col-lg-4">
+			  <h2>{{ Lang::get('user.dashboard.payments.title') }}</h2>
+			  @include('partials.payments.list')
+		  </section>
 
-			  <div class="col-lg-4">
+		  <section class="col-lg-3">
+
 				  <a href="{{ $invite->tokenUrl }}" class="btn btn-primary btn-lg">{{ Lang::get('user.dashboard.invite.button') }}</a>
-			  </div>
 
 		  </section>
           

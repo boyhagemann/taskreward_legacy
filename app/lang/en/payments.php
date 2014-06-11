@@ -13,32 +13,20 @@ return array(
 	|
 	*/
 
-	'dashboard' => array(
+	'list' => array(
 
-		'charts' => array(
+			'empty' => 'There are no payments yet',
 
-			'title' => 'Mijn opbrengsten',
+	),
 
-		),
+	'show' => array(
 
+		'heading' => 'Payment',
 		'rewards' => array(
 
-			'title' => 'Recente opbrengsten',
-
+			'heading' => 'Rewards with this payment',
 		),
 
-		'payments' => array(
-
-			'title' => 'Uitbetalingen',
-			'alert' => '<h3>Request a payment</h3><p>You can <a href=":url">request a payment</a> for :value :currency</p>',
-
-		),
-
-		'invite' => array(
-
-			'button' => 'Vrienden uitnodigen',
-
-		),
 	),
 
 );

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRewardsTable extends Migration {
+class CreatePaymentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,22 +12,18 @@ class CreateRewardsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('rewards', function(Blueprint $table)
+		Schema::create('payments', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
 
-			$table->string('uid');
 			$table->integer('user_id');
-			$table->integer('task_id');
-			$table->integer('payment_id')->nullable();
+			$table->enum('status', ['requested', 'accepted', 'payed']);
             $table->float('value');
             $table->string('currency');
 
-			$table->unique('uid');
 			$table->index('user_id');
-            $table->index('task_id');
-            $table->index('payment_id');
+            $table->index('status');
             $table->index('value');
             $table->index('currency');
 		});
@@ -40,7 +36,7 @@ class CreateRewardsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('rewards');
+		Schema::drop('payments');
 	}
 
 }

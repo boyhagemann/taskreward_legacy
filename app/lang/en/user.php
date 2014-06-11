@@ -24,7 +24,13 @@ return array(
 		'rewards' => array(
 
 			'title' => 'Recent rewards',
-			'empty' => 'You have no rewards yet',
+
+		),
+
+		'payments' => array(
+
+			'title' => 'Payments',
+			'alert' => '<h3>Request a payment</h3><p>You can <a href=":url">request a payment</a> for :value :currency</p>',
 
 		),
 

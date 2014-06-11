@@ -86,6 +86,14 @@ Event::listen('api.rewards.index', function(QueryBuilder $qb) {
 	}
 });
 
+Event::listen('api.payments.index', function(QueryBuilder $qb) {
+
+	if(!Input::get('user_id')) {
+		return;
+	}
+
+	$qb->where('user_id', Input::get('user_id'));
+});
 
 Event::listen('api.rewards.collection', function(Collection $collection) {
 

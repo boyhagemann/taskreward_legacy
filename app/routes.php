@@ -15,13 +15,19 @@ Route::get('/', array(
     'uses' => 'HomeController@index',
     'as' => 'home',
 ));
+Route::get('payments/request', array(
+	'uses' => 'PaymentController@request',
+	'as' => 'payments.request',
+));
 
 Route::model('tasks', 'Task');
 Route::model('rewards', 'Reward');
+Route::model('payments', 'Payment');
 Route::model('stream', 'Moment');
 
 Route::resource('tasks', 'TaskController');
 Route::resource('rewards', 'RewardController');
+Route::resource('payments', 'PaymentController');
 Route::resource('stream', 'StreamController');
 
 Route::get('r/{token}', array(
@@ -92,6 +98,7 @@ Route::group(array('before' => 'auth', ), function() {
 Route::group(array('prefix' => 'api', 'namespace' => 'Api'), function() {
 	Route::resource('tasks', 'TaskController');
 	Route::resource('rewards', 'RewardController');
+	Route::resource('payments', 'PaymentController');
 	Route::resource('stream', 'StreamController');
 	Route::resource('tokens', 'TokenController');
 });

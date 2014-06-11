@@ -52,4 +52,14 @@ class Reward extends Eloquent {
 	{
 		return $this->hasMany('Moment', 'task_id', 'task_id');
 	}
+
+	/**
+	 * @param Payment $payment
+	 */
+	public static function bindToPayment(Payment $payment)
+	{
+		DB::table('rewards')->whereNull('payment_id')->update([
+			'payment_id' => $payment->id
+		]);
+	}
 }
