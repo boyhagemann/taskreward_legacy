@@ -8,6 +8,7 @@
 
     <!-- Bootstrap -->
     {{ HTML::style("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css") }}
+	  {{ HTML::style("http://fonts.googleapis.com/css?family=Abel") }}
     {{ HTML::style("css/screen.css") }}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -76,7 +77,7 @@
     <div class="jumbotron">
         <div class="container">
             <div class="col-lg-12">
-				<h2>{{ Lang::get('user.dashboard.charts.title') }}</h2>
+				<h2 class="i_title">{{ Lang::get('user.dashboard.charts.title') }}</h2>
 				<div id="chart_rewards"></div>
             </div>
         </div>
@@ -93,12 +94,12 @@
 		  @endif
 
 		  <section class="col-lg-5">
-			  <h2>{{ Lang::get('user.dashboard.rewards.title') }}</h2>
+			  <h2 class="i_title">{{ Lang::get('user.dashboard.rewards.title') }}</h2>
 			  @include('partials.rewards.list')
 		  </section>
 
 		  <section class="col-lg-4">
-			  <h2>{{ Lang::get('user.dashboard.payments.title') }}</h2>
+			  <h2 class="i_title">{{ Lang::get('user.dashboard.payments.title') }}</h2>
 			  @include('partials.payments.list')
 		  </section>
 

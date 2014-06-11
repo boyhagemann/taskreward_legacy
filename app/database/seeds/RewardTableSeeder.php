@@ -20,7 +20,7 @@ class RewardTableSeeder extends Seeder {
 		Reward::create(array(
 			'uid' => 'test2',
 			'user_id' => 1,
-			'task_id' => 3,
+			'task_id' => 2,
 			'value' => 46,
 			'currency' => 'EUR',
 		));

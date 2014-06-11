@@ -107,11 +107,11 @@ class Task extends Eloquent {
 
 	public function getImageAttribute()
 	{
-		return $this->thumb(120, 120);
+		return $this->thumb(180, 180);
 	}
 
 	public function getImageSmallAttribute()
 	{
-		return $this->thumb(80, 80);
+		return $this->thumb(120, 120);
 	}
 }

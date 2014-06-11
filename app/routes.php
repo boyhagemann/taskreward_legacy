@@ -98,7 +98,6 @@ Route::group(array('prefix' => 'api/', 'namespace' => 'Api'), function() {
 
 	Route::resource('tasks', 'TaskController');
 	Route::resource('rewards', 'RewardController');
-	Route::resource('payments', 'PaymentController');
 	Route::resource('stream', 'StreamController');
 });
 

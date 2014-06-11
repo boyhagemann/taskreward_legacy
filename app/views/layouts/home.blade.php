@@ -7,7 +7,8 @@
     <title>TaskReward</title>
 
     <!-- Bootstrap -->
-    {{ HTML::style("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css") }}
+	{{ HTML::style("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css") }}
+	{{ HTML::style("http://fonts.googleapis.com/css?family=Abel") }}
     {{ HTML::style("css/screen.css") }}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -6,7 +6,11 @@
 
 <hr>
 
+@if(Input::get('view') == 'grid')
+@include('partials.tasks.grid')
+@else
 @include('partials.tasks.list')
+@endif
 
 {{ $tasks->links() }}
 

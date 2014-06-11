@@ -30,7 +30,7 @@ return array(
 		'payments' => array(
 
 			'title' => 'Payments',
-			'alert' => '<h3>Request a payment</h3><p>You can <a href=":url">request a payment</a> for :value :currency</p>',
+			'alert' => '<h3 class="alert__title">Request a payment</h3><p>You can <a href=":url">request a payment</a> for :value :currency</p>',
 
 		),
 
