@@ -8,8 +8,8 @@
 
     <!-- Bootstrap -->
 	{{ HTML::style("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css") }}
-	{{ HTML::style("http://fonts.googleapis.com/css?family=Abel") }}
-    {{ HTML::style("css/screen.css") }}
+	  {{ HTML::style("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css") }}
+	  {{ HTML::style("//cdn.jsdelivr.net/bootflat/2.0.0/css/bootflat.css") }}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
