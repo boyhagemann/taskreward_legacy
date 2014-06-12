@@ -1,0 +1,25 @@
+{
+  "name": "taskreward",
+  "version": "0.0.0",
+  "description": "test",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boyhagemann/taskreward"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boyhagemann/taskreward/issues"
+  },
+  "homepage": "https://github.com/boyhagemann/taskreward",
+  "devDependencies": {
+    "gulp": "^3.8.0"
+  }
+}
