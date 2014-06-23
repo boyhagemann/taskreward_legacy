@@ -24,12 +24,11 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(function() {
+$env = $app->detectEnvironment(array(
 
-	if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == 'localhost') {
-		return 'local';
-	}
-});
+    'local' => array('homestead'),
+
+));
 
 /*
 |--------------------------------------------------------------------------
