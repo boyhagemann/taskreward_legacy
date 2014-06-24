@@ -39,8 +39,28 @@ $use-greybox:       true;
 
 
 
+$color-light:         #fff;
+$color-light-soft:    #ddd;
+$color-grey-hard:     #555;
+
 .container {
-  max-width: 1200px;
+  max-width: $desk-wide-start;
   margin: 0 auto;
   width: 100%;
+}
+
+.navbar {
+  background: $color-grey-hard;
+}
+.navbar__nav {
+  margin: 0;
+}
+
+.navbar__link {
+  color: $color-light-soft;
+  text-decoration: none;
+  
+  &:hover {
+    color: $color-light;
+  }
 }
