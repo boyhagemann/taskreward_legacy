@@ -43,7 +43,7 @@ class InstallCommand extends Command {
         
         $this->call('migrate', array('--package' => 'cartalyst/sentry'));
         $this->call('migrate');
-        $this->call('db:seed');
+        $this->call('db:seed', ['--force']);
 	}
 
 	/**
