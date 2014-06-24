@@ -6,24 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TaskReward</title>
 
+      {{ HTML::style('css/main.min.css') }}
+
   </head>
-  <body class="layout-default">
+  <body>
 
 	  @include('partials.navbar', ['form' => true])
 
-      <div class="container">
-		  <!--Div that will hold the pie chart-->
-		  <div id="chart_div"></div>
+      <div class="grid">
 
 		  @include('partials.messages')
-        
-          <section class="col-lg-9">
+
+          <section class="grid__item two-thirds lap-one-half">
               @yield('content')
-          </section>
-          <section class="col-lg-3">
+          </section><!--
+
+          --><section class="grid__item one-third lap-one-half">
               @yield('sidebar')
           </section>
-          
+
       </div>
 
   </body>

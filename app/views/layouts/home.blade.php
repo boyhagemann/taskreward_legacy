@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TaskReward</title>
 
+      {{ HTML::style('css/main.min.css') }}
+
   </head>
   <body>
 
