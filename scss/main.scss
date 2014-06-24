@@ -10,13 +10,13 @@
 $use-grids:         true;
 $use-flexbox:       false;
 $use-columns:       false;
-$use-nav:           false;
+$use-nav:           true;
 $use-options:       false;
 $use-pagination:    false;
 $use-breadcrumb:    false;
 $use-media:         false;
 $use-marginalia:    false;
-$use-island:        false;
+$use-island:        true;
 $use-block-list:    false;
 $use-matrix:        false;
 $use-split:         false;
@@ -26,11 +26,11 @@ $use-flyout:        false;
 $use-arrows:        false;
 $use-sprite:        false;
 $use-icon-text:     false;
-$use-beautons:      false;
+$use-beautons:      true;
 $use-lozenges:      false;
-$use-rules:         false;
+$use-rules:         true;
 $use-stats:         false;
-$use-greybox:       false;
+$use-greybox:       true;
 
 
 
@@ -39,7 +39,8 @@ $use-greybox:       false;
 
 
 
-html {
+.container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }

@@ -13,28 +13,22 @@
 
     @include('partials.navbar', ['form' => false])
 
-    <div class="jumbotron home-visual">
-        <div class="container">
-            <div class="col-lg-12">
+  <div class="island greybox">
 
-				<section class="row">
+        <div class="container grid">
+            <div class="grid__item one-whole">
 
-						<form class="col-lg-offset-3" action="{{ URL::route('tasks.index') }}" method="GET" role="search">
-							<div class="form-group col-xs-6">
-								<input type="text" name="q" class="form-control input-lg" placeholder="{{ Lang::get('navigation.navbar.search.placeholder') }}" value="{{{ Input::get('q') }}}">
-							</div>
-							<button type="submit" class="btn btn-primary input-lg">{{ Lang::get('navigation.navbar.search.label') }}</button>
-						</form>
-
-				</section>
+                <form class="" action="{{ URL::route('tasks.index') }}" method="GET" role="search">
+                    <div class="">
+                        <input type="text" name="q" class="text-input" placeholder="{{ Lang::get('navigation.navbar.search.placeholder') }}" value="{{{ Input::get('q') }}}">
+                    </div>
+                    <button type="submit" class="btn btn--large">{{ Lang::get('navigation.navbar.search.label') }}</button>
+                </form>
 
             </div>
         </div>
-    </div>
-      
-      <div class="container">
 
-      </div>
+  </div>
 
   </body>
 </html>

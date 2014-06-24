@@ -13,7 +13,7 @@
 		<h1 class="task__title i_title">{{ $task->title }}</h1>
 		<p>{{ $task->description }}</p>
 
-		<hr>
+		<hr class="rule">
 
 		@if($task->tokenUrl)
 		<h3 class="task__action-title i_title">{{ Lang::get('tasks.show.task', ['task' => $task->task, 'reward' => $task->reward]) }}</h3>
@@ -26,7 +26,7 @@
 		</div>
 		@endif
 
-		<hr>
+		<hr class="rule">
 
 
 		<ul>

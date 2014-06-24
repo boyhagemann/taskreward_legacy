@@ -13,17 +13,21 @@
 
 	  @include('partials.navbar', ['form' => true])
 
-      <div class="grid">
+      <div class="container">
 
-		  @include('partials.messages')
+          <div class="grid">
 
-          <section class="grid__item two-thirds lap-one-half">
-              @yield('content')
-          </section><!--
+              @include('partials.messages')
 
-          --><section class="grid__item one-third lap-one-half">
-              @yield('sidebar')
-          </section>
+              <section class="grid__item two-thirds lap-one-half">
+                  @yield('content')
+              </section><!--
+
+              --><section class="grid__item one-third lap-one-half">
+                  @yield('sidebar')
+              </section>
+
+          </div>
 
       </div>
 
