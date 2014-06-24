@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="greybox">
 
     <nav class="container" role="navigation">
 
@@ -6,9 +6,9 @@
 
             <div class="grid__item one-quarter text--left">
 
-              <ul class="nav nav--block navbar__nav">
-                <li><a href="{{ URL::route('tasks.index') }}" class="navbar__link">{{ Lang::get('navigation.navbar.tasks') }}</a></li><!--
-             --><li><a href="{{ URL::route('stream.index') }}" class="navbar__link">{{ Lang::get('navigation.navbar.stream') }}</a></li>
+              <ul class="nav nav--block">
+                <li><a href="{{ URL::route('tasks.index') }}">{{ Lang::get('navigation.navbar.tasks') }}</a></li>
+                <li><a href="{{ URL::route('stream.index') }}">{{ Lang::get('navigation.navbar.stream') }}</a></li>
               </ul>
 
             </div><!--
@@ -17,8 +17,10 @@
 
             @if($form)
               <form class="" action="{{ URL::route('tasks.index') }}" method="GET" role="search">
-                <input type="text" name="q" class="form-control" placeholder="{{ Lang::get('navigation.navbar.search.placeholder') }}" value="{{{ Input::get('q') }}}"><!--
-             --><button type="submit" class="btn btn--hard btn--small btn--positive">{{ Lang::get('navigation.navbar.search.label') }}</button>
+                <div class="form-group">
+                  <input type="text" name="q" class="form-control" placeholder="{{ Lang::get('navigation.navbar.search.placeholder') }}" value="{{{ Input::get('q') }}}">
+                </div>
+                <button type="submit" class="btn btn-primary">{{ Lang::get('navigation.navbar.search.label') }}</button>
               </form>
             @endif
 
@@ -26,13 +28,13 @@
 
          --><div class="grid__item one-quarter text--right">
 
-              <ul class="nav nav--block navbar__nav">
+              <ul class="nav nav--block">
                 @if(Sentry::check())
-                <li><a href="{{ URL::route('user.dashboard') }}" class="navbar__link">{{ Lang::get('navigation.navbar.account') }}</a></li><!--
-             --><li><a href="{{ URL::route('user.logout') }}" class="navbar__link">{{ Lang::get('navigation.navbar.logout') }}</a></li>
+                <li><a href="{{ URL::route('user.dashboard') }}" class="">{{ Lang::get('navigation.navbar.account') }}</a></li>
+                <li><a href="{{ URL::route('user.logout') }}" class="">{{ Lang::get('navigation.navbar.logout') }}</a></li>
                 @else
-                <li><a href="{{ URL::route('user.register') }}" class="navbar__link">{{ Lang::get('navigation.navbar.signup') }}</a></li><!--
-             --><li><a href="{{ URL::route('user.login') }}" class="navbar__link">{{ Lang::get('navigation.navbar.login') }}</a></li>
+                <li><a href="{{ URL::route('user.register') }}" class="">{{ Lang::get('navigation.navbar.signup') }}</a></li>
+                <li><a href="{{ URL::route('user.login') }}" class="">{{ Lang::get('navigation.navbar.login') }}</a></li>
                 @endif
               </ul>
 

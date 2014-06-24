@@ -19,8 +19,10 @@
             <div class="grid__item one-whole">
 
                 <form class="" action="{{ URL::route('tasks.index') }}" method="GET" role="search">
-                    <input type="text" name="q" class="text-input beta" placeholder="{{ Lang::get('navigation.navbar.search.placeholder') }}" value="{{{ Input::get('q') }}}"><!--
-                 --><button type="submit" class="btn btn--large">{{ Lang::get('navigation.navbar.search.label') }}</button>
+                    <div class="">
+                        <input type="text" name="q" class="text-input" placeholder="{{ Lang::get('navigation.navbar.search.placeholder') }}" value="{{{ Input::get('q') }}}">
+                    </div>
+                    <button type="submit" class="btn btn--large">{{ Lang::get('navigation.navbar.search.label') }}</button>
                 </form>
 
             </div>
