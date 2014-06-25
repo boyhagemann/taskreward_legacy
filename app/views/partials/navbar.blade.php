@@ -4,7 +4,7 @@
 
         <div class="grid">
 
-            <div class="grid__item one-quarter text--left">
+            <div class="grid__item one-whole desk-one-quarter text--left">
 
               <ul class="nav nav--block navbar__nav">
                 <li><a href="{{ URL::route('tasks.index') }}" class="navbar__link">{{ Lang::get('navigation.navbar.tasks') }}</a></li>
@@ -13,7 +13,7 @@
 
             </div><!--
 
-         --><div class="grid__item two-quarters text--left">
+         --><div class="grid__item one-whole desk-two-quarters text--left">
 
             @if($form)
               <form class="" action="{{ URL::route('tasks.index') }}" method="GET" role="search">
@@ -24,7 +24,7 @@
 
             </div><!--
 
-         --><div class="grid__item one-quarter text--right">
+         --><div class="grid__item one-whole desk-one-quarter text--right">
 
               <ul class="nav nav--block navbar__nav">
                 @if(Sentry::check())
