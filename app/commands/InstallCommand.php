@@ -38,11 +38,11 @@ class InstallCommand extends Command {
 	public function fire()
 	{
         if(Schema::hasTable('migrations')) {
-            $this->call('migrate:refresh', array('--package' => 'cartalyst/sentry'));
+            $this->call('migrate:refresh', ['--package' => 'cartalyst/sentry']);
             $this->call('migrate:refresh', ['--force', '--seed']);
         }
         else {
-            $this->call('migrate', array('--package' => 'cartalyst/sentry'));
+            $this->call('migrate', ['--package' => 'cartalyst/sentry']);
             $this->call('migrate', ['--force' => null, '--seed' => null]);
         }
 
