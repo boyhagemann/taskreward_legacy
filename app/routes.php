@@ -100,6 +100,10 @@ Route::group(array('prefix' => 'admin/'), function() {
     });
 
     Route::get('refresh', function() {
+
+        // Hack to enable migrations without errors
+        define('STDIN',fopen("php://stdin","r"));
+
         Artisan::call('app:install');
         return Redirect::to('admin')->withSuccess('App successfully installed');
     });
