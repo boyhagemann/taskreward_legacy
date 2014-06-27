@@ -4,7 +4,8 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		return View::make('layouts.home');
+        $taskCount = floor(Task::count() / 100) * 100;
+		return View::make('layouts.home', compact('taskCount'));
 	}
 
 }

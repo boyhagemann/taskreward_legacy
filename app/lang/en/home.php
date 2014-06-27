@@ -13,6 +13,11 @@ return array(
 	|
 	*/
 
+    'search' => array(
+
+        'title' => 'Search in over :count tasks',
+    ),
+
 	'tasks' => array(
 
 		'title' => 'Latest tasks',

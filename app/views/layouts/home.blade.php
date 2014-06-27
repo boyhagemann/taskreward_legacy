@@ -17,6 +17,8 @@
 
         <div class="container">
 
+            <h2>{{ Lang::get('home.search.title', ['count' => $taskCount]) }}</h2>
+
             <div class="grid">
                 <div class="grid__item one-whole">
 

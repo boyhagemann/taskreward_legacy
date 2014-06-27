@@ -13,6 +13,11 @@ return array(
 	|
 	*/
 
+    'search' => array(
+
+        'title' => 'Zoek binnen meer dan :count opdrachten',
+    ),
+
 	'tasks' => array(
 
 		'title' => 'Nieuwste opdrachten',

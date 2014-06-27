@@ -93,6 +93,20 @@ Route::group(array('before' => 'auth', ), function() {
 });
 
 
+Route::group(array('prefix' => 'admin/'), function() {
+
+    Route::get('/', function() {
+        return View::make('layouts.admin');
+    });
+
+    Route::get('refresh', function() {
+        Artisan::call('app:install');
+        return Redirect::to('admin')->withSuccess('App successfully installed');
+    });
+
+});
+
+
 
 Route::group(array('prefix' => 'api/', 'namespace' => 'Api'), function() {
 
