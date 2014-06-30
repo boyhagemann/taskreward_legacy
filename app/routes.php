@@ -137,7 +137,6 @@ Route::group(array('prefix' => 'admin/'), function() {
 });
 
 
-
 Route::group(array('prefix' => 'api/', 'namespace' => 'Api'), function() {
 
 	Route::resource('tasks', 'TaskController');

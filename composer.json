@@ -9,7 +9,9 @@
 		"teepluss/api": "1.*",
         "cartalyst/sentry": "2.*",
 		"intervention/imagecache": "2.*",
-		"elasticsearch/elasticsearch": "~1.0"
+		"elasticsearch/elasticsearch": "~1.0",
+        "barryvdh/laravel-cors": "dev-master"
+
 	},
 	"autoload": {
 		"classmap": [
