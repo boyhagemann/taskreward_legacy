@@ -123,7 +123,7 @@ return array(
 		'Teepluss\Api\ApiServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-        'Barryvdh\Cors\CorsServiceProvider',
+//        'Barryvdh\Cors\CorsServiceProvider',
 	),
 
 	/*
