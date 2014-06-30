@@ -81,6 +81,8 @@ class TaskController extends \BaseController {
 			$response[] = $this->store();
 		}
 
+        Event::fire('api.task.batch', array($response));
+
 		return $response;
 	}
 

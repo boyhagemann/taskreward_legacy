@@ -115,7 +115,7 @@ Route::group(array('prefix' => 'admin/'), function() {
     {
         $client = new Elasticsearch\Client();
         $client->indices()->optimize();
-        return Redirect::to('admin')->withSuccess('Search engine flushed');
+        return Redirect::to('admin')->withSuccess('Search engine optimized');
     });
 
 
