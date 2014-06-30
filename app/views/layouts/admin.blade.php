@@ -20,19 +20,7 @@
             <div class="grid__item desk-two-thirds">
 
                 <h2>Search engine</h2>
-
-                <table class="table">
-                    <tr>
-                        <td>Number of documents</td>
-                        <td>{{ $stats['indices']['docs']['count'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Memory used (bytes)</td>
-                        <td>{{ $stats['indices']['store']['size_in_bytes'] }}</td>
-                    </tr>
-                </table>
-
-                <pre>{{ json_encode($stats) }}</pre>
+                <pre>{{ $stats }}</pre>
             </div><!--
 
             --><div class="grid__item desk-one-third">

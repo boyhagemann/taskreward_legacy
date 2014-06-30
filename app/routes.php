@@ -98,11 +98,10 @@ Route::group(array('prefix' => 'admin/'), function() {
     Route::get('/', function() {
 
         $client = new Guzzle\Http\Client('http://localhost:9200');
-        $request = $client->get('_nodes/stats');
+        $request = $client->get('_nodes/stats?pretty=true');
         $response = $request->send();
 
-        $data = json_decode($response->getBody(true), true);
-        $stats = current($data['nodes']);
+        $stats = $response->getBody(true);
 
         return View::make('layouts.admin', compact('stats'));
     });
