@@ -98,7 +98,7 @@ Route::group(array('prefix' => 'admin/'), function() {
     Route::get('/', function() {
 
         $client = new Guzzle\Http\Client('http://localhost:9200');
-        $request = $client->get('_nodes/stats?pretty=true');
+        $request = $client->get('?pretty=true');
         $response = $request->send();
 
         $stats = $response->getBody(true);
@@ -109,29 +109,6 @@ Route::group(array('prefix' => 'admin/'), function() {
     Route::get('refresh', function() {
         Artisan::call('app:install');
         return Redirect::to('admin')->withSuccess('App successfully installed');
-    });
-
-    Route::get('search/flush', function()
-    {
-        $client = new Elasticsearch\Client();
-        $client->indices()->flush();
-        return Redirect::to('admin')->withSuccess('Search engine flushed');
-    });
-
-    Route::get('search/optimize', function()
-    {
-        $client = new Elasticsearch\Client();
-        $client->indices()->optimize();
-        return Redirect::to('admin')->withSuccess('Search engine optimized');
-    });
-
-    Route::get('search/delete', function()
-    {
-        $client = new Elasticsearch\Client();
-        $client->indices()->delete([
-            'index' => '_all',
-        ]);
-        return Redirect::to('admin')->withSuccess('Search engine deleted all indices');
     });
 
 });

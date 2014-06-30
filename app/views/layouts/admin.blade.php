@@ -29,10 +29,7 @@
 
                 <p>{{ HTML::link('admin/refresh', 'Re-install application') }}</p>
 
-                <h2>Search engine</h2>
-                <p>{{ HTML::link('admin/search/flush', 'Flush') }}</p>
-                <p>{{ HTML::link('admin/search/optimize', 'Optimize') }}</p>
-                <p>{{ HTML::link('admin/search/delete', 'Delete') }}</p>
+                <p>{{ HTML::link(Config::get('services.elasticsearch.manager') , 'Manage ElasticSearch', ['target' => '_blank']) }}</p>
 
             </div>
 
