@@ -96,7 +96,15 @@ Route::group(array('before' => 'auth', ), function() {
 Route::group(array('prefix' => 'admin/'), function() {
 
     Route::get('/', function() {
-        return View::make('layouts.admin');
+
+        $client = new Guzzle\Http\Client('http://localhost:9200');
+        $request = $client->get('_nodes/stats');
+        $response = $request->send();
+
+        $data = json_decode($response->getBody(true), true);
+        $stats = current($data['nodes']);
+
+        return View::make('layouts.admin', compact('stats'));
     });
 
     Route::get('refresh', function() {
