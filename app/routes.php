@@ -118,6 +118,14 @@ Route::group(array('prefix' => 'admin/'), function() {
         return Redirect::to('admin')->withSuccess('Search engine optimized');
     });
 
+    Route::get('search/delete', function()
+    {
+        $client = new Elasticsearch\Client();
+        $client->indices()->delete([
+            'index' => '_all',
+        ]);
+        return Redirect::to('admin')->withSuccess('Search engine deleted all indices');
+    });
 
 });
 

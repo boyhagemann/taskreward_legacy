@@ -26,6 +26,7 @@
                 <h2>Search engine</h2>
                 <p>{{ HTML::link('admin/search/flush', 'Flush') }}</p>
                 <p>{{ HTML::link('admin/search/optimize', 'Optimize') }}</p>
+                <p>{{ HTML::link('admin/search/delete', 'Delete') }}</p>
 
             </div>
 
