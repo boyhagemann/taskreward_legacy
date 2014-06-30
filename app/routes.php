@@ -100,13 +100,24 @@ Route::group(array('prefix' => 'admin/'), function() {
     });
 
     Route::get('refresh', function() {
-
-        // Hack to enable migrations without errors
-        define('STDIN',fopen("php://stdin","r"));
-
         Artisan::call('app:install');
         return Redirect::to('admin')->withSuccess('App successfully installed');
     });
+
+    Route::get('search/flush', function()
+    {
+        $client = new Elasticsearch\Client();
+        $client->indices()->flush();
+        return Redirect::to('admin')->withSuccess('Search engine flushed');
+    });
+
+    Route::get('search/optimize', function()
+    {
+        $client = new Elasticsearch\Client();
+        $client->indices()->optimize();
+        return Redirect::to('admin')->withSuccess('Search engine flushed');
+    });
+
 
 });
 
