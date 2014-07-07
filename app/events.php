@@ -192,18 +192,6 @@ Event::listen('token.redirect', function(User $user, Task $task, $token) {
 
 });
 
-
-/**
- * After inserting batch tasks, optimize the search engine
- * for performance reasons.
- */
-Event::listen('api.task.batch', function(Array $responses) {
-
-    $client = new Elasticsearch\Client();
-    $client->optimize();
-
-});
-
 Task::saved(function(Task $task) {
 
 	$client = new Elasticsearch\Client();
