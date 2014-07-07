@@ -17,7 +17,7 @@ class Task extends Eloquent {
 	 */
 	protected $table = 'tasks';
 
-	protected $visible = array('id', 'created_at', 'title', 'teaser', 'description', 'uri', 'image', 'action', 'provider');
+	protected $visible = array('id', 'created_at', 'uid', 'title', 'teaser', 'description', 'uri', 'image', 'action', 'provider');
 
 	protected $fillable = array('uid', 'title', 'action', 'teaser', 'description', 'uri', 'image', 'value', 'currency', 'provider_id');
 

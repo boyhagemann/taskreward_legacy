@@ -37,6 +37,12 @@ class InstallCommand extends Command {
 	 */
 	public function fire()
 	{
+        // Clear all search indices
+        $client = new Elasticsearch\Client();
+        $client->indices()->delete([
+            'index' => 'tasks',
+        ]);
+
         if(Schema::hasTable('migrations')) {
             $this->call('migrate:reset', ['--force' => true]);
         }
